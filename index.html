@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1974 AMITYVILLE — Client Portal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #141414;
+    --bg-card: #1c1c1c;
+    --bg-elevated: #242424;
+    --gold: #c9a84c;
+    --gold-dim: #9a7b3a;
+    --text: #e8e4dc;
+    --text-dim: #8a8580;
+    --accent-green: #4a9e6e;
+    --accent-red: #c44e4e;
+    --radius: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(20,20,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  nav .logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700; font-size: 1.2rem;
+    letter-spacing: 0.15em; color: var(--gold);
+  }
+  nav .logo span { color: var(--text-dim); font-weight: 400; font-size: 0.85rem; margin-left: 0.5rem; letter-spacing: 0.05em; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a {
+    color: var(--text-dim); text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; transition: color 0.2s;
+  }
+  nav a:hover, nav a.active { color: var(--gold); }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .hero-year {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem; color: var(--gold); letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 700; letter-spacing: 0.04em;
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .hero-line {
+    width: 80px; height: 2px; background: var(--gold);
+    margin: 0 auto 1.5rem;
+  }
+  .hero p {
+    color: var(--text-dim); font-size: 1rem;
+    max-width: 500px; margin: 0 auto 2rem;
+  }
+  .hero-tag {
+    display: inline-block; padding: 0.4rem 1.2rem;
+    border: 1px solid var(--gold-dim); border-radius: 100px;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-header .line { flex: 0 0 40px; height: 2px; background: var(--gold); }
+  .section-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem; font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---- DOCUMENTS ---- */
+  .doc-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .doc-card {
+    background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.4rem;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .doc-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-2px); }
+  .doc-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+  .doc-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .doc-card p { font-size: 0.8rem; color: var(--text-dim); }
+  .doc-card .doc-type {
+    display: inline-block; margin-top: 0.8rem;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-dim); background: rgba(201,168,76,0.08);
+    padding: 0.2rem 0.6rem; border-radius: 4px;
+  }
+
+  /* ---- CASTING ---- */
+  .casting-intro {
+    color: var(--text-dim); font-size: 0.95rem;
+    max-width: 700px; margin-bottom: 2rem;
+  }
+
+  .character-section { margin-bottom: 4rem; }
+  .character-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .character-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem; font-weight: 600;
+  }
+  .character-ref {
+    font-size: 0.8rem; color: var(--gold-dim);
+  }
+  .character-notes {
+    color: var(--text-dim); font-size: 0.85rem; font-style: italic;
+    margin-bottom: 1.5rem; max-width: 700px;
+  }
+  .character-divider {
+    height: 1px; background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  .variation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .variation-card {
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    position: relative;
+  }
+  .variation-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .variation-card.selected { border-color: var(--gold); }
+  .variation-card .check-badge {
+    position: absolute; top: 8px; right: 8px;
+    background: rgba(0,0,0,0.5); color: rgba(255,255,255,0.4);
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+    transition: all 0.2s; pointer-events: none;
+  }
+  .variation-card.selected .check-badge {
+    background: var(--gold); color: var(--bg);
+  }
+  .zoom-btn {
+    position: absolute; top: 8px; left: 8px;
+    background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.7);
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; cursor: zoom-in;
+    border: none; opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .variation-card:hover .zoom-btn { opacity: 1; }
+  .zoom-btn:hover { background: rgba(0,0,0,0.8); color: white; }
+  .variation-card img {
+    width: 100%; aspect-ratio: 1; object-fit: cover;
+    display: block;
+  }
+  .variation-label {
+    padding: 0.7rem 0.8rem;
+  }
+  .variation-label .v-id {
+    font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .variation-label .v-name {
+    font-size: 0.82rem; font-weight: 500;
+  }
+
+  .round-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold-dim); margin: 1.8rem 0 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .round-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(201,168,76,0.15);
+  }
+
+  .none-option {
+    margin-top: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .none-btn {
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-dim); padding: 0.5rem 1.2rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-size: 0.8rem; letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .none-btn:hover { border-color: var(--accent-red); color: var(--accent-red); }
+  .none-btn.active { border-color: var(--accent-red); color: var(--accent-red); background: rgba(196,78,78,0.1); }
+
+  .change-request {
+    margin-top: 0.8rem; display: none;
+  }
+  .change-request.visible { display: block; }
+  .change-request textarea {
+    width: 100%; min-height: 80px; background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius);
+    color: var(--text); padding: 0.8rem; font-family: inherit;
+    font-size: 0.85rem; resize: vertical;
+  }
+  .change-request textarea::placeholder { color: var(--text-dim); }
+  .change-request textarea:focus { outline: none; border-color: var(--gold-dim); }
+
+  /* ---- MOOD BOARD ---- */
+  .moodboard-intro {
+    color: var(--text-dim); font-size: 0.95rem;
+    max-width: 700px; margin-bottom: 2rem;
+  }
+  .moodboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+  }
+  .moodboard-card {
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    position: relative;
+  }
+  .moodboard-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .moodboard-card.selected { border-color: var(--gold); }
+  .moodboard-card .check-badge {
+    position: absolute; top: 10px; right: 10px;
+    background: rgba(0,0,0,0.5); color: rgba(255,255,255,0.4);
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: 700;
+    transition: all 0.2s; pointer-events: none;
+  }
+  .moodboard-card.selected .check-badge {
+    background: var(--gold); color: var(--bg);
+  }
+  .moodboard-card .zoom-btn {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.7);
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; cursor: zoom-in;
+    border: none; opacity: 0;
+    transition: opacity 0.2s; z-index: 2;
+  }
+  .moodboard-card:hover .zoom-btn { opacity: 1; }
+  .moodboard-card .zoom-btn:hover { background: rgba(0,0,0,0.8); color: white; }
+  .moodboard-card img {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover;
+    display: block;
+  }
+  .moodboard-label {
+    padding: 0.8rem 1rem;
+  }
+  .moodboard-label .style-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .moodboard-label .style-desc {
+    font-size: 0.78rem; color: var(--text-dim);
+    margin-top: 0.2rem;
+  }
+  .moodboard-none {
+    margin-top: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .moodboard-notes {
+    margin-top: 0.8rem;
+  }
+  .moodboard-notes textarea {
+    width: 100%; min-height: 80px; background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius);
+    color: var(--text); padding: 0.8rem; font-family: inherit;
+    font-size: 0.85rem; resize: vertical;
+  }
+  .moodboard-notes textarea::placeholder { color: var(--text-dim); }
+  .moodboard-notes textarea:focus { outline: none; border-color: var(--gold-dim); }
+
+  /* ---- LIGHTBOX ---- */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.92);
+    align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw; max-height: 90vh;
+    border-radius: var(--radius); cursor: default;
+  }
+  .lightbox-label {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7); padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem; white-space: nowrap;
+  }
+
+  /* ---- SUBMIT ---- */
+  .submit-section {
+    background: var(--bg-card);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    margin-top: 3rem;
+  }
+  .submit-section h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem; margin-bottom: 0.5rem;
+  }
+  .submit-section > p {
+    color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1.5rem;
+  }
+
+  /* Live selection summary */
+  .selection-summary {
+    margin-bottom: 1.8rem;
+  }
+  .selection-summary-item {
+    display: flex; align-items: baseline; gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .selection-summary-item:last-child { border-bottom: none; }
+  .summary-character {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    min-width: 140px; letter-spacing: 0.04em;
+  }
+  .summary-choice {
+    font-size: 0.85rem; color: var(--gold);
+  }
+  .summary-choice.none-chosen {
+    color: var(--accent-red);
+  }
+  .summary-choice.pending {
+    color: var(--text-dim); font-style: italic;
+  }
+  .summary-reason {
+    font-size: 0.78rem; color: var(--text-dim); font-style: italic;
+    margin-left: 140px; padding: 0.2rem 0 0.4rem;
+  }
+
+  .reviewer-row {
+    display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  .reviewer-row input {
+    flex: 1; min-width: 200px;
+    background: var(--bg-elevated); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius); color: var(--text);
+    padding: 0.7rem 1rem; font-family: inherit; font-size: 0.9rem;
+  }
+  .reviewer-row input::placeholder { color: var(--text-dim); }
+  .reviewer-row input:focus { outline: none; border-color: var(--gold-dim); }
+
+  .general-notes textarea {
+    width: 100%; min-height: 100px; background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius);
+    color: var(--text); padding: 0.8rem; font-family: inherit; font-size: 0.85rem;
+    resize: vertical; margin-bottom: 1.5rem;
+  }
+  .general-notes textarea::placeholder { color: var(--text-dim); }
+  .general-notes textarea:focus { outline: none; border-color: var(--gold-dim); }
+  .general-notes label {
+    display: block; font-size: 0.8rem; color: var(--text-dim);
+    margin-bottom: 0.4rem; letter-spacing: 0.05em;
+  }
+
+  .submit-actions {
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+  }
+  .submit-btn {
+    background: var(--gold); color: var(--bg);
+    border: none; padding: 0.8rem 2.5rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .submit-btn:hover { background: #d4b355; transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled {
+    background: var(--text-dim); cursor: not-allowed;
+    transform: none; opacity: 0.5;
+  }
+  .copy-btn {
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-dim); padding: 0.7rem 1.5rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-size: 0.8rem; letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .submit-hint {
+    font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;
+    width: 100%;
+  }
+
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--accent-green); color: white;
+    padding: 1rem 1.5rem; border-radius: var(--radius);
+    font-size: 0.9rem; font-weight: 500;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.3s;
+    z-index: 300;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    text-align: center; padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.75rem; color: var(--text-dim);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    nav ul { gap: 1rem; }
+    nav a { font-size: 0.7rem; }
+    .variation-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+    section { padding: 3rem 1.2rem; }
+    .submit-section { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">1974 AMITYVILLE <span>CLIENT PORTAL</span></div>
+  <ul>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#casting">Casting</a></li>
+    <li><a href="#moodboard">Mood Board</a></li>
+    <li><a href="#submit">Submit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-year">1 9 7 4</div>
+  <h1>AMITYVILLE</h1>
+  <div class="hero-line"></div>
+  <p>Welcome to the client review portal. Browse project documents, review AI-generated casting variations, and submit your selections below.</p>
+  <div class="hero-tag">Confidential — For Review Only</div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="documents">
+  <div class="section-header">
+    <div class="line"></div>
+    <h2>PROJECT DOCUMENTS</h2>
+  </div>
+  <div class="doc-grid">
+    <div class="doc-card">
+      <div class="doc-icon">📖</div>
+      <h3>1974 Amityville Film Bible</h3>
+      <p>Complete creative vision, themes, tone, and world-building reference for the project.</p>
+      <span class="doc-type">Film Bible · DOCX</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">👥</div>
+      <h3>Characters & World</h3>
+      <p>Detailed character breakdowns, arcs, relationships, and the world they inhabit.</p>
+      <span class="doc-type">Character Doc · DOCX</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">🎬</div>
+      <h3>Limited Series Presentation</h3>
+      <p>The full pitch presentation for the 1974 Amityville limited series.</p>
+      <span class="doc-type">Presentation · PDF</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">🕯️</div>
+      <h3>Seance Scenes Test</h3>
+      <p>Draft seance sequence scenes for tone and atmosphere testing.</p>
+      <span class="doc-type">Script Pages · PDF</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">📸</div>
+      <h3>Actor Reference Photos</h3>
+      <p>Reference amalgam images used as visual anchors for each character's AI casting.</p>
+      <span class="doc-type">Reference · DOCX</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">🎨</div>
+      <h3>AI Casting Deck (PDF)</h3>
+      <p>Complete casting deck with all 20 AI-generated character variations for print review.</p>
+      <span class="doc-type">Casting Deck · PDF</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASTING -->
+<section id="casting">
+  <div class="section-header">
+    <div class="line"></div>
+    <h2>CASTING SELECTIONS</h2>
+  </div>
+  <p class="casting-intro">
+    Below are AI-generated casting variations for each character, created using Freepik's Google Nano Banana 2 model.
+    Each character has 10 variations across two rounds — Round 1 (V1–V5) and Round 2 (V6–V10), refined based on your feedback.
+    Click on the variation(s) you like best for each character. If none work, click "None of these" and describe what changes you'd like.
+  </p>
+
+  <!-- BOBBY D'ANGELO -->
+  <div class="character-section" data-character="Bobby D'Angelo">
+    <div class="character-divider"></div>
+    <div class="character-header">
+      <h3>BOBBY D'ANGELO</h3>
+      <span class="character-ref">Reference: Jacob Elordi + Alex Wolff</span>
+    </div>
+    <p class="character-notes">Handsome in an accidental way. Strong jaw, hollowed eyes. Slightly hunched, half-present. Faded denim jacket, Black Sabbath tee, bell-bottom jeans, barefoot.</p>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Bobby V1" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V1.jpg" alt="Bobby V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Brooder</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V2" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V2.jpg" alt="Bobby V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Wild Card</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V3" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V3.jpg" alt="Bobby V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Pretty Boy</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V4" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V4.jpg" alt="Bobby V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Greaser</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V5" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V5.jpg" alt="Bobby V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Outsider</div></div>
+      </div>
+    </div>
+    <div class="round-label">Round 2 — Updated per Client Feedback</div>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Bobby V6" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v6.jpg" alt="Bobby V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Protector</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V7" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v7.jpg" alt="Bobby V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Gentle Giant</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V8" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v8.jpg" alt="Bobby V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Quiet Tough</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V9" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v9.jpg" alt="Bobby V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Big Brother</div></div>
+      </div>
+      <div class="variation-card" data-variation="Bobby V10" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v10.jpg" alt="Bobby V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Unlikely Screamer</div></div>
+      </div>
+    </div>
+    <div class="none-option">
+      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
+    </div>
+    <div class="change-request">
+      <textarea placeholder="Describe what changes you'd like for Bobby D'Angelo..."></textarea>
+    </div>
+  </div>
+
+  <!-- SUSIE -->
+  <div class="character-section" data-character="Susie">
+    <div class="character-divider"></div>
+    <div class="character-header">
+      <h3>SUSIE</h3>
+      <span class="character-ref">Reference: Sydney Sweeney + Margaret Qualley</span>
+    </div>
+    <p class="character-notes">Sharp, intuitive, ethereal. Suede fringe vest over a cream peasant blouse, bell-bottom jeans, gold hoop earrings. Hair parted down the middle, flowing. The group's emotional antenna.</p>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Susie V1" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V1.jpg" alt="Susie V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Ethereal One</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V2" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V2.jpg" alt="Susie V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Sharp One</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V3" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V3.jpg" alt="Susie V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Bohemian</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V4" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V4.jpg" alt="Susie V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Mystic</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V5" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V5.jpg" alt="Susie V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Girl Next Door</div></div>
+      </div>
+    </div>
+    <div class="round-label">Round 2 — Updated per Client Feedback</div>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Susie V6" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v6.jpg" alt="Susie V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Natural Hippie</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V7" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v7.jpg" alt="Susie V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Perceptive One</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V8" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v8.jpg" alt="Susie V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Earth Girl</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V9" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v9.jpg" alt="Susie V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Sensitive Antenna</div></div>
+      </div>
+      <div class="variation-card" data-variation="Susie V10" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v10.jpg" alt="Susie V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Seventies Girl</div></div>
+      </div>
+    </div>
+    <div class="none-option">
+      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
+    </div>
+    <div class="change-request">
+      <textarea placeholder="Describe what changes you'd like for Susie..."></textarea>
+    </div>
+  </div>
+
+  <!-- CARL -->
+  <div class="character-section" data-character="Carl">
+    <div class="character-divider"></div>
+    <div class="character-header">
+      <h3>CARL</h3>
+      <span class="character-ref">Reference: Timothee Chalamet + Joe Keery</span>
+    </div>
+    <p class="character-notes">Fast-talking skeptic. Red-black flannel over Led Zeppelin tee, wire-frame glasses, feathered hair. The group's loudmouth and comic relief, but hides real fear underneath.</p>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Carl V1" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V1.jpg" alt="Carl V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Skeptic</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V2" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V2.jpg" alt="Carl V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Class Clown</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V3" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V3.jpg" alt="Carl V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Nerd</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V4" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V4.jpg" alt="Carl V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Stoner</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V5" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V5.jpg" alt="Carl V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Motormouth</div></div>
+      </div>
+    </div>
+    <div class="round-label">Round 2 — Updated per Client Feedback</div>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Carl V6" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v6.jpg" alt="Carl V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Keery Skeptic</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V7" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v7.jpg" alt="Carl V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Loudmouth</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V8" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v8.jpg" alt="Carl V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Nervous Joker</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V9" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v9.jpg" alt="Carl V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Stoner Skeptic</div></div>
+      </div>
+      <div class="variation-card" data-variation="Carl V10" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v10.jpg" alt="Carl V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Fast Talker</div></div>
+      </div>
+    </div>
+    <div class="none-option">
+      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
+    </div>
+    <div class="change-request">
+      <textarea placeholder="Describe what changes you'd like for Carl..."></textarea>
+    </div>
+  </div>
+
+  <!-- DARRELL -->
+  <div class="character-section" data-character="Darrell">
+    <div class="character-divider"></div>
+    <div class="character-header">
+      <h3>DARRELL</h3>
+      <span class="character-ref">Reference: Michael B. Jordan</span>
+    </div>
+    <p class="character-notes">Quiet Vietnam vet, carved from shadow. Faded Army field jacket with sleeves torn off, combat boots. Watches everything, says little. The most dangerous person in the room and the most broken.</p>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Darrell V1" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V1.jpg" alt="Darrell V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Soldier</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V2" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V2.jpg" alt="Darrell V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Ghost</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V3" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V3.jpg" alt="Darrell V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Protector</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V4" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V4.jpg" alt="Darrell V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Broken One</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V5" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V5.jpg" alt="Darrell V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Coiled Spring</div></div>
+      </div>
+    </div>
+    <div class="round-label">Round 2 — Updated per Client Feedback</div>
+    <div class="variation-grid">
+      <div class="variation-card" data-variation="Darrell V6" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v6.jpg" alt="Darrell V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Protector</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V7" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v7.jpg" alt="Darrell V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Silent Authority</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V8" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v8.jpg" alt="Darrell V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Quiet Storm</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V9" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v9.jpg" alt="Darrell V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Haunted Soldier</div></div>
+      </div>
+      <div class="variation-card" data-variation="Darrell V10" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v10.jpg" alt="Darrell V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Anchor</div></div>
+      </div>
+    </div>
+    <div class="none-option">
+      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
+    </div>
+    <div class="change-request">
+      <textarea placeholder="Describe what changes you'd like for Darrell..."></textarea>
+    </div>
+  </div>
+
+  <!-- CINEMATOGRAPHY MOOD BOARD -->
+  <div id="moodboard" style="margin-bottom:4rem;">
+    <div class="section-header">
+      <span class="line"></span>
+      <h2>CINEMATOGRAPHY MOOD BOARD</h2>
+    </div>
+    <p class="moodboard-intro">
+      Your production team has prepared visual style references showing how the house interior could look under different cinematography approaches.
+      Each option is inspired by a classic horror film's visual language. Select the style(s) that feel right for 1974 Amityville.
+    </p>
+    <div class="moodboard-grid">
+      <div class="moodboard-card" data-style="Lake Mungo" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/lake_mungo.jpg" alt="Lake Mungo style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">Lake Mungo</div>
+          <div class="style-desc">Cold, desaturated tones. Eerie stillness. Documentary-style detachment.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="The Taking of Deborah Logan" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/deborah_logan.jpg" alt="Deborah Logan style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">The Taking of Deborah Logan</div>
+          <div class="style-desc">Warmer wood tones with visible crew. Found-footage naturalism.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="The Fields" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/the_fields.jpg" alt="The Fields style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">The Fields</div>
+          <div class="style-desc">Warm amber palette. Aged wallpaper texture. Rural domestic unease.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="Amityville 3-D" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/amityville_3d.jpg" alt="Amityville 3-D style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">Amityville 3-D</div>
+          <div class="style-desc">Deep blue-green shadows. Classic '80s horror lighting. Heavy contrast.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="Amityville 1979" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/amityville_1979.jpg" alt="Amityville 1979 style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">Amityville 1979</div>
+          <div class="style-desc">Rich warm wood. Period-accurate '70s interiors. Lived-in authenticity.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="Texas Chainsaw 1974" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/texas_chainsaw_1974.jpg" alt="Texas Chainsaw 1974 style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">Texas Chainsaw 1974</div>
+          <div class="style-desc">Washed-out, sun-baked decay. Gritty 16mm texture. Oppressive heat.</div>
+        </div>
+      </div>
+      <div class="moodboard-card" data-style="Let's Scare Jessica to Death" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="images/moodboard/jessica_to_death.jpg" alt="Let's Scare Jessica to Death style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">Let&rsquo;s Scare Jessica to Death</div>
+          <div class="style-desc">Muted earth tones. Exposed brick warmth. Quiet rural dread.</div>
+        </div>
+      </div>
+    </div>
+    <div class="moodboard-notes">
+      <label style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:0.4rem;">NOTES ON CINEMATOGRAPHY PREFERENCE (OPTIONAL)</label>
+      <textarea id="moodboard-notes" placeholder="Any thoughts on the visual direction — color temperature, texture, lighting mood..."></textarea>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-section" id="submit">
+    <h3>SUBMIT YOUR SELECTIONS</h3>
+    <p>Here's a summary of your picks. Make sure everything looks right, then hit submit to send your feedback to the production team.</p>
+
+    <!-- Live summary -->
+    <div class="selection-summary" id="selection-summary"></div>
+
+    <div class="reviewer-row">
+      <input type="text" id="reviewer-name" placeholder="Your name">
+    </div>
+    <div class="general-notes">
+      <label>GENERAL NOTES (OPTIONAL)</label>
+      <textarea id="general-notes" placeholder="Any overall thoughts on the casting direction, tone, or additional feedback..."></textarea>
+    </div>
+    <div class="submit-actions">
+      <button class="submit-btn" id="submit-btn" onclick="submitFeedback()">Submit Casting Feedback</button>
+      <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+    <p class="submit-hint">Clicking submit will open your email client with your selections pre-filled.</p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-label" id="lightbox-label"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Feedback submitted successfully!</div>
+
+<footer>
+  <p>1974 AMITYVILLE — CONFIDENTIAL CLIENT REVIEW PORTAL</p>
+  <p style="margin-top:0.3rem;">Generated with Freepik AI &middot; Google Nano Banana 2 &middot; 10 Variations Per Character (2 Rounds)</p>
+</footer>
+
+<script>
+  // ---- Selection Logic ----
+  function toggleSelect(card) {
+    card.classList.toggle('selected');
+    const section = card.closest('.character-section');
+    const noneBtn = section.querySelector('.none-btn');
+    // If selecting a variation, clear "none" state
+    if (card.classList.contains('selected') && noneBtn.classList.contains('active')) {
+      noneBtn.classList.remove('active');
+      section.querySelector('.change-request').classList.remove('visible');
+    }
+    updateSummary();
+  }
+
+  function toggleNone(btn) {
+    btn.classList.toggle('active');
+    const section = btn.closest('.character-section');
+    const changeReq = section.querySelector('.change-request');
+    if (btn.classList.contains('active')) {
+      // Clear all variation selections for this character
+      section.querySelectorAll('.variation-card.selected').forEach(c => c.classList.remove('selected'));
+      changeReq.classList.add('visible');
+      changeReq.querySelector('textarea').focus();
+    } else {
+      changeReq.classList.remove('visible');
+    }
+    updateSummary();
+  }
+
+  // ---- Mood Board Selection ----
+  function toggleMoodboard(card) {
+    card.classList.toggle('selected');
+    updateSummary();
+  }
+
+  function openMoodboardLightbox(card) {
+    const img = card.querySelector('img');
+    const name = card.querySelector('.style-name').textContent;
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-label').textContent = 'Cinematography Style: ' + name;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  function getMoodboardSelections() {
+    const cards = document.querySelectorAll('.moodboard-card.selected');
+    const picks = [];
+    cards.forEach(c => picks.push(c.dataset.style));
+    return picks;
+  }
+
+  // Also update summary when change-request textareas change
+  document.querySelectorAll('.change-request textarea').forEach(ta => {
+    ta.addEventListener('input', updateSummary);
+  });
+  document.getElementById('moodboard-notes').addEventListener('input', updateSummary);
+
+  // ---- Lightbox ----
+  function openLightbox(imgEl) {
+    const card = imgEl.closest('.variation-card');
+    const vId = card.querySelector('.v-id').textContent;
+    const vName = card.querySelector('.v-name').textContent;
+    const character = card.closest('.character-section').dataset.character;
+    document.getElementById('lightbox-img').src = imgEl.src;
+    document.getElementById('lightbox-label').textContent = character + ' \u2014 ' + vId + ' \u2014 ' + vName;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ---- Live Summary ----
+  function getSelections() {
+    const sections = document.querySelectorAll('.character-section');
+    const results = [];
+    sections.forEach(section => {
+      const character = section.dataset.character;
+      const selected = section.querySelectorAll('.variation-card.selected');
+      const noneActive = section.querySelector('.none-btn').classList.contains('active');
+      const changeText = section.querySelector('.change-request textarea').value.trim();
+
+      const picks = [];
+      selected.forEach(card => {
+        picks.push(card.querySelector('.v-id').textContent + ' \u2014 ' + card.querySelector('.v-name').textContent);
+      });
+
+      results.push({ character, picks, noneActive, changeText });
+    });
+    return results;
+  }
+
+  function updateSummary() {
+    const container = document.getElementById('selection-summary');
+    const selections = getSelections();
+    let html = '';
+    let hasAnySelection = false;
+
+    selections.forEach(s => {
+      html += '<div class="selection-summary-item">';
+      html += '<span class="summary-character">' + s.character + '</span>';
+
+      if (s.picks.length > 0) {
+        html += '<span class="summary-choice">' + s.picks.join(', ') + '</span>';
+        hasAnySelection = true;
+      } else if (s.noneActive) {
+        html += '<span class="summary-choice none-chosen">NONE</span>';
+        hasAnySelection = true;
+      } else {
+        html += '<span class="summary-choice pending">No selection yet</span>';
+      }
+      html += '</div>';
+
+      if (s.noneActive && s.changeText) {
+        html += '<div class="summary-reason">"' + s.changeText + '"</div>';
+      }
+    });
+
+    // Mood board summary
+    const moodPicks = getMoodboardSelections();
+    const moodNotes = document.getElementById('moodboard-notes').value.trim();
+    html += '<div class="selection-summary-item">';
+    html += '<span class="summary-character">Cinematography</span>';
+    if (moodPicks.length > 0) {
+      html += '<span class="summary-choice">' + moodPicks.join(', ') + '</span>';
+    } else {
+      html += '<span class="summary-choice pending">No style selected yet</span>';
+    }
+    html += '</div>';
+    if (moodNotes) {
+      html += '<div class="summary-reason">"' + moodNotes + '"</div>';
+    }
+
+    container.innerHTML = html;
+
+    // Enable/disable submit based on whether all characters have a selection
+    const allDone = selections.every(s => s.picks.length > 0 || s.noneActive);
+    document.getElementById('submit-btn').disabled = !allDone;
+  }
+
+  // ---- Build Email Body ----
+  function buildEmailBody() {
+    const selections = getSelections();
+    const name = document.getElementById('reviewer-name').value.trim();
+    const generalNotes = document.getElementById('general-notes').value.trim();
+    let lines = [];
+
+    lines.push('=== 1974 AMITYVILLE — CASTING FEEDBACK ===');
+    lines.push('');
+    if (name) lines.push('Reviewer: ' + name);
+    lines.push('Date: ' + new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'}));
+    lines.push('');
+
+    selections.forEach(s => {
+      lines.push('--- ' + s.character.toUpperCase() + ' ---');
+      if (s.picks.length > 0) {
+        s.picks.forEach(p => lines.push('  Selected: ' + p));
+      } else if (s.noneActive) {
+        lines.push('  Selected: NONE');
+        if (s.changeText) lines.push('  Requested Changes: ' + s.changeText);
+      } else {
+        lines.push('  (No selection made)');
+      }
+      lines.push('');
+    });
+
+    // Mood board
+    const moodPicks = getMoodboardSelections();
+    const moodNotes = document.getElementById('moodboard-notes').value.trim();
+    lines.push('--- CINEMATOGRAPHY STYLE ---');
+    if (moodPicks.length > 0) {
+      moodPicks.forEach(p => lines.push('  Selected: ' + p));
+    } else {
+      lines.push('  (No style selected)');
+    }
+    if (moodNotes) lines.push('  Notes: ' + moodNotes);
+    lines.push('');
+
+    if (generalNotes) {
+      lines.push('--- GENERAL NOTES ---');
+      lines.push(generalNotes);
+      lines.push('');
+    }
+
+    return lines.join('\n');
+  }
+
+  // ---- Submit ----
+  function submitFeedback() {
+    const name = document.getElementById('reviewer-name').value.trim();
+    if (!name) {
+      alert('Please enter your name before submitting.');
+      document.getElementById('reviewer-name').focus();
+      return;
+    }
+
+    const selections = getSelections();
+    const allDone = selections.every(s => s.picks.length > 0 || s.noneActive);
+    if (!allDone) {
+      alert('Please make a selection (or choose "None") for every character before submitting.');
+      return;
+    }
+
+    const body = buildEmailBody();
+    const subject = encodeURIComponent('1974 Amityville \u2014 Casting & Cinematography Feedback from ' + name);
+    const mailto = 'mailto:khalilcm2000@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+    const toast = document.getElementById('toast');
+    toast.textContent = 'Opening your email client with feedback...';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // ---- Copy to Clipboard ----
+  function copyToClipboard() {
+    const body = buildEmailBody();
+    navigator.clipboard.writeText(body).then(() => {
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Feedback copied to clipboard!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = body;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Feedback copied to clipboard!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    });
+  }
+
+  // ---- Nav Active State ----
+  const navLinks = document.querySelectorAll('nav a');
+  const observerOpts = { rootMargin: '-50% 0px', threshold: 0 };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const id = entry.target.id;
+        const link = document.querySelector('nav a[href="#' + id + '"]');
+        if (link) link.classList.add('active');
+      }
+    });
+  }, observerOpts);
+  document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+  // Initialize summary on load
+  updateSummary();
+</script>
+
+</body>
+</html>

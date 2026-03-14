@@ -111,9 +111,21 @@
     background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06);
     border-radius: var(--radius); padding: 1.4rem;
     transition: border-color 0.2s, transform 0.2s;
-    cursor: default;
+    cursor: pointer;
+    position: relative;
   }
   .doc-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-2px); }
+  .doc-card.has-file:hover { border-color: var(--gold); }
+  .doc-card.has-file::after {
+    content: 'CLICK TO VIEW';
+    position: absolute; top: 1rem; right: 1rem;
+    font-size: 0.55rem; letter-spacing: 0.12em;
+    color: var(--gold); opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .doc-card.has-file:hover::after { opacity: 1; }
+  .doc-card.coming-soon { cursor: default; opacity: 0.5; }
+  .doc-card.coming-soon:hover { transform: none; border-color: rgba(255,255,255,0.06); }
   .doc-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
   .doc-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
   .doc-card p { font-size: 0.8rem; color: var(--text-dim); }
@@ -123,6 +135,70 @@
     color: var(--gold-dim); background: rgba(201,168,76,0.08);
     padding: 0.2rem 0.6rem; border-radius: 4px;
   }
+  .doc-card .doc-status {
+    display: inline-block; margin-top: 0.8rem; margin-left: 0.4rem;
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim); background: rgba(255,255,255,0.05);
+    padding: 0.2rem 0.6rem; border-radius: 4px;
+  }
+
+  /* ---- DOCUMENT VIEWER MODAL ---- */
+  .doc-viewer {
+    display: none; position: fixed; inset: 0; z-index: 250;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+  }
+  .doc-viewer.open { display: flex; }
+  .doc-viewer-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(20,20,20,0.95);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    flex-shrink: 0;
+  }
+  .doc-viewer-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    letter-spacing: 0.06em; color: var(--gold);
+  }
+  .doc-viewer-actions { display: flex; gap: 0.8rem; align-items: center; }
+  .doc-viewer-btn {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text); padding: 0.5rem 1rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-size: 0.75rem; letter-spacing: 0.05em;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .doc-viewer-btn:hover { background: rgba(201,168,76,0.15); border-color: var(--gold-dim); color: var(--gold); }
+  .doc-viewer-close {
+    background: none; border: none; color: var(--text-dim);
+    font-size: 1.8rem; cursor: pointer; padding: 0 0.3rem;
+    line-height: 1; transition: color 0.2s;
+  }
+  .doc-viewer-close:hover { color: var(--gold); }
+  .doc-viewer-body {
+    flex: 1; display: flex; align-items: stretch; justify-content: center;
+    overflow: hidden;
+  }
+  .doc-viewer-body iframe {
+    width: 100%; height: 100%; border: none;
+    background: #333;
+  }
+  .doc-viewer-fallback {
+    display: none; flex-direction: column; align-items: center;
+    justify-content: center; gap: 1.5rem; text-align: center;
+    padding: 2rem; color: var(--text-dim);
+  }
+  .doc-viewer-fallback .fallback-icon { font-size: 4rem; }
+  .doc-viewer-fallback p { font-size: 0.9rem; max-width: 400px; }
+  .doc-viewer-fallback a {
+    display: inline-block; background: var(--gold); color: var(--bg);
+    padding: 0.7rem 2rem; border-radius: var(--radius);
+    text-decoration: none; font-family: 'Oswald', sans-serif;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .doc-viewer-fallback a:hover { background: #d4b355; }
 
   /* ---- CASTING ---- */
   .casting-intro {
@@ -497,41 +573,46 @@
     <h2>PROJECT DOCUMENTS</h2>
   </div>
   <div class="doc-grid">
-    <div class="doc-card">
+    <div class="doc-card has-file" onclick="openDocViewer('docs/CINEMAMOODBOARD.pdf', 'Cinema Moodboard — Limited Series Presentation')">
+      <div class="doc-icon">🎬</div>
+      <h3>Cinema Moodboard / Presentation</h3>
+      <p>The full pitch presentation with visual references, cinematography direction, and mood boards.</p>
+      <span class="doc-type">Presentation · PDF</span>
+    </div>
+    <div class="doc-card coming-soon">
       <div class="doc-icon">📖</div>
       <h3>1974 Amityville Film Bible</h3>
       <p>Complete creative vision, themes, tone, and world-building reference for the project.</p>
       <span class="doc-type">Film Bible · DOCX</span>
+      <span class="doc-status">Coming Soon</span>
     </div>
-    <div class="doc-card">
+    <div class="doc-card coming-soon">
       <div class="doc-icon">👥</div>
       <h3>Characters & World</h3>
       <p>Detailed character breakdowns, arcs, relationships, and the world they inhabit.</p>
       <span class="doc-type">Character Doc · DOCX</span>
+      <span class="doc-status">Coming Soon</span>
     </div>
-    <div class="doc-card">
-      <div class="doc-icon">🎬</div>
-      <h3>Limited Series Presentation</h3>
-      <p>The full pitch presentation for the 1974 Amityville limited series.</p>
-      <span class="doc-type">Presentation · PDF</span>
-    </div>
-    <div class="doc-card">
+    <div class="doc-card coming-soon">
       <div class="doc-icon">🕯️</div>
       <h3>Seance Scenes Test</h3>
       <p>Draft seance sequence scenes for tone and atmosphere testing.</p>
       <span class="doc-type">Script Pages · PDF</span>
+      <span class="doc-status">Coming Soon</span>
     </div>
-    <div class="doc-card">
+    <div class="doc-card coming-soon">
       <div class="doc-icon">📸</div>
       <h3>Actor Reference Photos</h3>
       <p>Reference amalgam images used as visual anchors for each character's AI casting.</p>
       <span class="doc-type">Reference · DOCX</span>
+      <span class="doc-status">Coming Soon</span>
     </div>
-    <div class="doc-card">
+    <div class="doc-card coming-soon">
       <div class="doc-icon">🎨</div>
       <h3>AI Casting Deck (PDF)</h3>
       <p>Complete casting deck with all 20 AI-generated character variations for print review.</p>
       <span class="doc-type">Casting Deck · PDF</span>
+      <span class="doc-status">Coming Soon</span>
     </div>
   </div>
 </section>
@@ -896,6 +977,26 @@
   </div>
 </section>
 
+<!-- DOCUMENT VIEWER -->
+<div class="doc-viewer" id="doc-viewer">
+  <div class="doc-viewer-header">
+    <span class="doc-viewer-title" id="doc-viewer-title">Document</span>
+    <div class="doc-viewer-actions">
+      <button class="doc-viewer-btn" id="doc-download-btn" onclick="downloadDoc()">⬇ Download</button>
+      <button class="doc-viewer-btn" onclick="openDocNewTab()">↗ Open in New Tab</button>
+      <button class="doc-viewer-close" onclick="closeDocViewer()">&times;</button>
+    </div>
+  </div>
+  <div class="doc-viewer-body">
+    <iframe id="doc-iframe" src=""></iframe>
+    <div class="doc-viewer-fallback" id="doc-fallback">
+      <div class="fallback-icon">📄</div>
+      <p>Your browser may not support inline PDF viewing. Click below to open the document directly.</p>
+      <a id="doc-fallback-link" href="" target="_blank">Open Document</a>
+    </div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img" src="" alt="">
@@ -911,6 +1012,55 @@
 </footer>
 
 <script>
+  // ---- Document Viewer ----
+  let currentDocUrl = '';
+
+  function openDocViewer(url, title) {
+    currentDocUrl = url;
+    document.getElementById('doc-viewer-title').textContent = title || 'Document';
+    const iframe = document.getElementById('doc-iframe');
+    const fallback = document.getElementById('doc-fallback');
+    document.getElementById('doc-fallback-link').href = url;
+
+    // Try loading in iframe
+    iframe.style.display = 'block';
+    fallback.style.display = 'none';
+    iframe.src = url;
+
+    // If iframe fails to load PDF (some mobile browsers), show fallback
+    iframe.onerror = function() {
+      iframe.style.display = 'none';
+      fallback.style.display = 'flex';
+    };
+
+    document.getElementById('doc-viewer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDocViewer() {
+    document.getElementById('doc-viewer').classList.remove('open');
+    document.getElementById('doc-iframe').src = '';
+    document.body.style.overflow = '';
+  }
+
+  function downloadDoc() {
+    const a = document.createElement('a');
+    a.href = currentDocUrl;
+    a.download = currentDocUrl.split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function openDocNewTab() {
+    window.open(currentDocUrl, '_blank');
+  }
+
+  // Close doc viewer on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDocViewer();
+  });
+
   // ---- Selection Logic ----
   function toggleSelect(card) {
     card.classList.toggle('selected');

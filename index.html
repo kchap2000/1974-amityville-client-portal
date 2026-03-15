@@ -1017,7 +1017,7 @@
       <button class="submit-btn" id="submit-btn" onclick="submitFeedback()">Submit Casting Feedback</button>
       <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
-    <p class="submit-hint">Clicking submit will open your email client with your selections pre-filled.</p>
+    <p class="submit-hint">Your selections will be submitted securely and emailed to the production team.</p>
   </div>
 </section>
 
@@ -1211,11 +1211,14 @@
       const changeText = section.querySelector('.change-request textarea').value.trim();
 
       const picks = [];
+      const imagePaths = [];
       selected.forEach(card => {
         picks.push(card.querySelector('.v-id').textContent + ' \u2014 ' + card.querySelector('.v-name').textContent);
+        const img = card.querySelector('img');
+        if (img) imagePaths.push(img.getAttribute('src'));
       });
 
-      results.push({ character, picks, noneActive, changeText });
+      results.push({ character, picks, imagePaths, noneActive, changeText });
     });
     return results;
   }
@@ -1316,7 +1319,7 @@
   }
 
   // ---- Submit ----
-  function submitFeedback() {
+  async function submitFeedback() {
     const name = document.getElementById('reviewer-name').value.trim();
     if (!name) {
       alert('Please enter your name before submitting.');
@@ -1331,16 +1334,75 @@
       return;
     }
 
-    const body = buildEmailBody();
-    const subject = encodeURIComponent('1974 Amityville \u2014 Casting & Cinematography Feedback from ' + name);
-    const mailto = 'mailto:khalilcm2000@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+    // Disable button and show loading state
+    const submitBtn = document.getElementById('submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'SUBMITTING...';
+    submitBtn.style.opacity = '0.7';
 
-    window.location.href = mailto;
+    const payload = {
+      reviewerName: name,
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      selections: selections,
+      moodboardPicks: getMoodboardSelections(),
+      moodboardNotes: document.getElementById('moodboard-notes').value.trim(),
+      generalNotes: document.getElementById('general-notes').value.trim(),
+    };
 
-    const toast = document.getElementById('toast');
-    toast.textContent = 'Opening your email client with feedback...';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 4000);
+    try {
+      const response = await fetch('/.netlify/functions/submit-feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // Success!
+        const toast = document.getElementById('toast');
+        toast.textContent = 'Feedback submitted successfully! The production team has been notified.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 5000);
+
+        submitBtn.textContent = 'SUBMITTED ✓';
+        submitBtn.style.background = '#4a9e6e';
+        submitBtn.style.opacity = '1';
+
+        // Reset after a moment
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.style.opacity = '';
+          submitBtn.disabled = false;
+        }, 8000);
+      } else {
+        throw new Error(result.error || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Submit error:', err);
+
+      // Show error toast
+      const toast = document.getElementById('toast');
+      toast.style.background = '#c44e4e';
+      toast.textContent = 'Submission failed. Falling back to email...';
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+        toast.style.background = '';
+      }, 4000);
+
+      // Fallback to mailto
+      const body = buildEmailBody();
+      const subject = encodeURIComponent('1974 Amityville \u2014 Casting & Cinematography Feedback from ' + name);
+      const mailto = 'mailto:khalilcm2000@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+
+      submitBtn.textContent = originalText;
+      submitBtn.style.opacity = '';
+      submitBtn.disabled = false;
+    }
   }
 
   // ---- Copy to Clipboard ----

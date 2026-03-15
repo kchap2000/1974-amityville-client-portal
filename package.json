@@ -1,0 +1,9 @@
+{
+  "name": "1974-amityville-client-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Client portal for 1974 Amityville limited series",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}

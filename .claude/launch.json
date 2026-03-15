@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/khalilchapman/Desktop/Amityville Hub/client-portal"],
       "port": 8080
+    },
+    {
+      "name": "Netlify Dev (Full Stack)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["netlify-cli", "dev", "--dir", "/Users/khalilchapman/Desktop/Amityville Hub/client-portal"],
+      "port": 8888
     }
   ]
 }

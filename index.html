@@ -405,6 +405,18 @@
   }
   .moodboard-card:hover .zoom-btn { opacity: 1; }
   .moodboard-card .zoom-btn:hover { background: rgba(0,0,0,0.8); color: white; }
+  .moodboard-card .download-btn {
+    position: absolute; bottom: 70px; right: 10px;
+    background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.7);
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; cursor: pointer;
+    border: none; opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2; text-decoration: none;
+  }
+  .moodboard-card:hover .download-btn { opacity: 1; }
+  .moodboard-card .download-btn:hover { background: rgba(0,0,0,0.8); color: white; }
   .moodboard-card img {
     width: 100%; aspect-ratio: 16/9; object-fit: cover;
     display: block;
@@ -915,6 +927,7 @@
     <div class="moodboard-grid">
       <div class="moodboard-card" data-style="Lake Mungo" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/lake_mungo.jpg" alt="Lake Mungo style" loading="lazy">
         <div class="moodboard-label">
@@ -924,6 +937,7 @@
       </div>
       <div class="moodboard-card" data-style="The Taking of Deborah Logan" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/deborah_logan.jpg" alt="Deborah Logan style" loading="lazy">
         <div class="moodboard-label">
@@ -933,6 +947,7 @@
       </div>
       <div class="moodboard-card" data-style="The Fields" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/the_fields.jpg" alt="The Fields style" loading="lazy">
         <div class="moodboard-label">
@@ -942,6 +957,7 @@
       </div>
       <div class="moodboard-card" data-style="Amityville 3-D" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/amityville_3d.jpg" alt="Amityville 3-D style" loading="lazy">
         <div class="moodboard-label">
@@ -951,6 +967,7 @@
       </div>
       <div class="moodboard-card" data-style="Amityville 1979" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/amityville_1979.jpg" alt="Amityville 1979 style" loading="lazy">
         <div class="moodboard-label">
@@ -960,6 +977,7 @@
       </div>
       <div class="moodboard-card" data-style="Texas Chainsaw 1974" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/texas_chainsaw_1974.jpg" alt="Texas Chainsaw 1974 style" loading="lazy">
         <div class="moodboard-label">
@@ -969,6 +987,7 @@
       </div>
       <div class="moodboard-card" data-style="Let's Scare Jessica to Death" onclick="toggleMoodboard(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
         <span class="check-badge">&#10003;</span>
         <img src="images/moodboard/jessica_to_death.jpg" alt="Let's Scare Jessica to Death style" loading="lazy">
         <div class="moodboard-label">
@@ -1168,12 +1187,19 @@
 
   // ---- Lightbox ----
   function downloadImage(imgEl) {
-    const card = imgEl.closest('.variation-card');
-    const character = card.closest('.character-section').dataset.character;
-    const vId = card.querySelector('.v-id').textContent;
+    const card = imgEl.closest('.variation-card') || imgEl.closest('.moodboard-card');
+    let filename;
+    if (card.classList.contains('moodboard-card')) {
+      const style = card.dataset.style;
+      filename = style.replace(/[^a-zA-Z0-9]/g, '_') + '.jpg';
+    } else {
+      const character = card.closest('.character-section').dataset.character;
+      const vId = card.querySelector('.v-id').textContent;
+      filename = character.replace(/[^a-zA-Z0-9]/g, '_') + '_' + vId + '.jpg';
+    }
     const a = document.createElement('a');
     a.href = imgEl.src;
-    a.download = character.replace(/[^a-zA-Z0-9]/g, '_') + '_' + vId + '.jpg';
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

@@ -322,20 +322,18 @@
     font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-  .variation-label .v-name {
-    font-size: 0.82rem; font-weight: 500;
+  .download-btn {
+    position: absolute; bottom: 48px; right: 8px;
+    background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.7);
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; cursor: pointer;
+    border: none; opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2; text-decoration: none;
   }
-
-  .round-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold-dim); margin: 1.8rem 0 0.8rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .round-label::after {
-    content: ''; flex: 1; height: 1px;
-    background: rgba(201,168,76,0.15);
-  }
+  .variation-card:hover .download-btn { opacity: 1; }
+  .download-btn:hover { background: rgba(0,0,0,0.8); color: white; }
 
   .none-option {
     margin-top: 1rem;
@@ -668,9 +666,8 @@
     <h2>CASTING SELECTIONS</h2>
   </div>
   <p class="casting-intro">
-    Below are AI-generated casting variations for each character, created using Freepik's Google Nano Banana 2 model.
-    Each character has 10 variations across two rounds — Round 1 (V1–V5) and Round 2 (V6–V10), refined based on your feedback.
-    Click on the variation(s) you like best for each character. If none work, click "None of these" and describe what changes you'd like.
+    Below are AI-generated casting variations for each character.
+    Each character has 10 variations (V1–V10). Click on the variation(s) you like best for each character. If none work, click "None of these" and describe what changes you'd like.
   </p>
 
   <!-- BOBBY D'ANGELO -->
@@ -683,47 +680,44 @@
     <p class="character-notes">Handsome in an accidental way. Strong jaw, hollowed eyes. Slightly hunched, half-present. Faded denim jacket, Black Sabbath tee, bell-bottom jeans, barefoot.</p>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Bobby V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V1.jpg" alt="Bobby V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Brooder</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V1.jpg" alt="Bobby V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V2.jpg" alt="Bobby V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Wild Card</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V2.jpg" alt="Bobby V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V3.jpg" alt="Bobby V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Pretty Boy</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V3.jpg" alt="Bobby V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V4.jpg" alt="Bobby V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Greaser</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V4.jpg" alt="Bobby V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/Bobby_V5.jpg" alt="Bobby V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Outsider</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V5.jpg" alt="Bobby V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div></div>
       </div>
-    </div>
-    <div class="round-label">Round 2 — Updated per Client Feedback</div>
-    <div class="variation-grid">
       <div class="variation-card" data-variation="Bobby V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v6.jpg" alt="Bobby V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Protector</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v6.jpg" alt="Bobby V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v7.jpg" alt="Bobby V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Gentle Giant</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v7.jpg" alt="Bobby V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v8.jpg" alt="Bobby V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Quiet Tough</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v8.jpg" alt="Bobby V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v9.jpg" alt="Bobby V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Big Brother</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v9.jpg" alt="Bobby V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div></div>
       </div>
       <div class="variation-card" data-variation="Bobby V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/bobby/bobby_v10.jpg" alt="Bobby V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Unlikely Screamer</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v10.jpg" alt="Bobby V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
     </div>
     <div class="none-option">
@@ -744,47 +738,44 @@
     <p class="character-notes">Sharp, intuitive, ethereal. Suede fringe vest over a cream peasant blouse, bell-bottom jeans, gold hoop earrings. Hair parted down the middle, flowing. The group's emotional antenna.</p>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Susie V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V1.jpg" alt="Susie V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Ethereal One</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V1.jpg" alt="Susie V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V2.jpg" alt="Susie V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Sharp One</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V2.jpg" alt="Susie V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V3.jpg" alt="Susie V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Bohemian</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V3.jpg" alt="Susie V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V4.jpg" alt="Susie V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Mystic</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V4.jpg" alt="Susie V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/Susie_V5.jpg" alt="Susie V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Girl Next Door</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V5.jpg" alt="Susie V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div></div>
       </div>
-    </div>
-    <div class="round-label">Round 2 — Updated per Client Feedback</div>
-    <div class="variation-grid">
       <div class="variation-card" data-variation="Susie V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v6.jpg" alt="Susie V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Natural Hippie</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v6.jpg" alt="Susie V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v7.jpg" alt="Susie V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Perceptive One</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v7.jpg" alt="Susie V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v8.jpg" alt="Susie V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Earth Girl</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v8.jpg" alt="Susie V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v9.jpg" alt="Susie V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Sensitive Antenna</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v9.jpg" alt="Susie V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div></div>
       </div>
       <div class="variation-card" data-variation="Susie V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/susie/susie_v10.jpg" alt="Susie V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Seventies Girl</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v10.jpg" alt="Susie V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
     </div>
     <div class="none-option">
@@ -805,47 +796,44 @@
     <p class="character-notes">Fast-talking skeptic. Red-black flannel over Led Zeppelin tee, wire-frame glasses, feathered hair. The group's loudmouth and comic relief, but hides real fear underneath.</p>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Carl V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V1.jpg" alt="Carl V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Skeptic</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V1.jpg" alt="Carl V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V2.jpg" alt="Carl V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Class Clown</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V2.jpg" alt="Carl V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V3.jpg" alt="Carl V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Nerd</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V3.jpg" alt="Carl V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V4.jpg" alt="Carl V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Stoner</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V4.jpg" alt="Carl V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/Carl_V5.jpg" alt="Carl V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Motormouth</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V5.jpg" alt="Carl V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div></div>
       </div>
-    </div>
-    <div class="round-label">Round 2 — Updated per Client Feedback</div>
-    <div class="variation-grid">
       <div class="variation-card" data-variation="Carl V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v6.jpg" alt="Carl V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Keery Skeptic</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v6.jpg" alt="Carl V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v7.jpg" alt="Carl V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Loudmouth</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v7.jpg" alt="Carl V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v8.jpg" alt="Carl V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Nervous Joker</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v8.jpg" alt="Carl V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v9.jpg" alt="Carl V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Stoner Skeptic</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v9.jpg" alt="Carl V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div></div>
       </div>
       <div class="variation-card" data-variation="Carl V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/carl/carl_v10.jpg" alt="Carl V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Fast Talker</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v10.jpg" alt="Carl V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
     </div>
     <div class="none-option">
@@ -866,47 +854,44 @@
     <p class="character-notes">Quiet Vietnam vet, carved from shadow. Faded Army field jacket with sleeves torn off, combat boots. Watches everything, says little. The most dangerous person in the room and the most broken.</p>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Darrell V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V1.jpg" alt="Darrell V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div><div class="v-name">The Soldier</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V1.jpg" alt="Darrell V1" loading="lazy">
+        <div class="variation-label"><div class="v-id">V1</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V2.jpg" alt="Darrell V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div><div class="v-name">The Ghost</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V2.jpg" alt="Darrell V2" loading="lazy">
+        <div class="variation-label"><div class="v-id">V2</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V3.jpg" alt="Darrell V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div><div class="v-name">The Protector</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V3.jpg" alt="Darrell V3" loading="lazy">
+        <div class="variation-label"><div class="v-id">V3</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V4.jpg" alt="Darrell V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div><div class="v-name">The Broken One</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V4.jpg" alt="Darrell V4" loading="lazy">
+        <div class="variation-label"><div class="v-id">V4</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/Darrell_V5.jpg" alt="Darrell V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div><div class="v-name">The Coiled Spring</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V5.jpg" alt="Darrell V5" loading="lazy">
+        <div class="variation-label"><div class="v-id">V5</div></div>
       </div>
-    </div>
-    <div class="round-label">Round 2 — Updated per Client Feedback</div>
-    <div class="variation-grid">
       <div class="variation-card" data-variation="Darrell V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v6.jpg" alt="Darrell V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div><div class="v-name">The Protector</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v6.jpg" alt="Darrell V6" loading="lazy">
+        <div class="variation-label"><div class="v-id">V6</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v7.jpg" alt="Darrell V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div><div class="v-name">The Silent Authority</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v7.jpg" alt="Darrell V7" loading="lazy">
+        <div class="variation-label"><div class="v-id">V7</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v8.jpg" alt="Darrell V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div><div class="v-name">The Quiet Storm</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v8.jpg" alt="Darrell V8" loading="lazy">
+        <div class="variation-label"><div class="v-id">V8</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v9.jpg" alt="Darrell V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div><div class="v-name">The Haunted Soldier</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v9.jpg" alt="Darrell V9" loading="lazy">
+        <div class="variation-label"><div class="v-id">V9</div></div>
       </div>
       <div class="variation-card" data-variation="Darrell V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><span class="check-badge">✓</span><img src="images/darrell/darrell_v10.jpg" alt="Darrell V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div><div class="v-name">The Anchor</div></div>
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v10.jpg" alt="Darrell V10" loading="lazy">
+        <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
     </div>
     <div class="none-option">
@@ -1182,13 +1167,24 @@
   document.getElementById('moodboard-notes').addEventListener('input', updateSummary);
 
   // ---- Lightbox ----
+  function downloadImage(imgEl) {
+    const card = imgEl.closest('.variation-card');
+    const character = card.closest('.character-section').dataset.character;
+    const vId = card.querySelector('.v-id').textContent;
+    const a = document.createElement('a');
+    a.href = imgEl.src;
+    a.download = character.replace(/[^a-zA-Z0-9]/g, '_') + '_' + vId + '.jpg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
   function openLightbox(imgEl) {
     const card = imgEl.closest('.variation-card');
     const vId = card.querySelector('.v-id').textContent;
-    const vName = card.querySelector('.v-name').textContent;
     const character = card.closest('.character-section').dataset.character;
     document.getElementById('lightbox-img').src = imgEl.src;
-    document.getElementById('lightbox-label').textContent = character + ' \u2014 ' + vId + ' \u2014 ' + vName;
+    document.getElementById('lightbox-label').textContent = character + ' \u2014 ' + vId;
     document.getElementById('lightbox').classList.add('open');
   }
 
@@ -1213,7 +1209,7 @@
       const picks = [];
       const imagePaths = [];
       selected.forEach(card => {
-        picks.push(card.querySelector('.v-id').textContent + ' \u2014 ' + card.querySelector('.v-name').textContent);
+        picks.push(card.querySelector('.v-id').textContent);
         const img = card.querySelector('img');
         if (img) imagePaths.push(img.getAttribute('src'));
       });

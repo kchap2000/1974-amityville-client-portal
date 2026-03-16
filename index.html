@@ -288,6 +288,53 @@
   }
   .variation-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
   .variation-card.selected { border-color: var(--gold); }
+
+  /* RE-GEN badge */
+  .regen-badge {
+    position: absolute; top: 8px; left: 8px; z-index: 3;
+    background: var(--gold); color: #141414;
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+    padding: 2px 6px; border-radius: 3px;
+  }
+
+  /* Archive feature */
+  .archive-btn {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    z-index: 4; opacity: 0; pointer-events: none;
+    background: rgba(0,0,0,0.75); color: var(--text-dim);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 4px;
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 4px 10px; cursor: pointer; transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .variation-card:hover .archive-btn { opacity: 1; pointer-events: auto; }
+  .archive-btn:hover { background: rgba(201,168,76,0.25); color: var(--gold); border-color: var(--gold-dim); }
+  .variation-card.archived .archive-btn { background: rgba(201,168,76,0.2); color: var(--gold); }
+
+  .archive-toggle {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 1rem; cursor: pointer;
+    color: var(--text-dim); font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .archive-toggle:hover { color: var(--gold); }
+  .archive-toggle .arrow { transition: transform 0.3s; display: inline-block; }
+  .archive-toggle.open .arrow { transform: rotate(90deg); }
+  .archive-toggle .archive-count {
+    background: rgba(201,168,76,0.15); color: var(--gold-dim);
+    font-size: 0.7rem; padding: 1px 6px; border-radius: 10px;
+  }
+  .variation-card.archived {
+    display: none;
+    opacity: 0.4;
+    filter: grayscale(50%);
+    transition: opacity 0.3s, filter 0.3s;
+  }
+  .variation-card.archived:hover { opacity: 0.7; filter: grayscale(20%); }
+  .character-section.show-archived .variation-card.archived {
+    display: block;
+  }
+
   .variation-card .check-badge {
     position: absolute; top: 8px; right: 8px;
     background: rgba(0,0,0,0.5); color: rgba(255,255,255,0.4);
@@ -690,6 +737,7 @@
       <span class="character-ref">Reference: Jacob Elordi + Alex Wolff</span>
     </div>
     <p class="character-notes">Handsome in an accidental way. Strong jaw, hollowed eyes. Slightly hunched, half-present. Faded denim jacket, Black Sabbath tee, bell-bottom jeans, barefoot.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Bobby V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V1.jpg" alt="Bobby V1" loading="lazy">
@@ -731,6 +779,14 @@
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v10.jpg" alt="Bobby V10" loading="lazy">
         <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
+      <div class="variation-card regen" data-variation="Bobby V11" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/bobby/Bobby_V11.jpg" alt="Bobby V11" loading="lazy">
+        <div class="variation-label"><div class="v-id">V11</div></div>
+      </div>
+      <div class="variation-card regen" data-variation="Bobby V12" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/bobby/Bobby_V12.jpg" alt="Bobby V12" loading="lazy">
+        <div class="variation-label"><div class="v-id">V12</div></div>
+      </div>
     </div>
     <div class="none-option">
       <button class="none-btn" onclick="toggleNone(this)">None of these</button>
@@ -748,6 +804,7 @@
       <span class="character-ref">Reference: Sydney Sweeney + Margaret Qualley</span>
     </div>
     <p class="character-notes">Sharp, intuitive, ethereal. Suede fringe vest over a cream peasant blouse, bell-bottom jeans, gold hoop earrings. Hair parted down the middle, flowing. The group's emotional antenna.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Susie V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V1.jpg" alt="Susie V1" loading="lazy">
@@ -806,6 +863,7 @@
       <span class="character-ref">Reference: Timothee Chalamet + Joe Keery</span>
     </div>
     <p class="character-notes">Fast-talking skeptic. Red-black flannel over Led Zeppelin tee, wire-frame glasses, feathered hair. The group's loudmouth and comic relief, but hides real fear underneath.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Carl V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V1.jpg" alt="Carl V1" loading="lazy">
@@ -864,6 +922,7 @@
       <span class="character-ref">Reference: Michael B. Jordan</span>
     </div>
     <p class="character-notes">Quiet Vietnam vet, carved from shadow. Faded Army field jacket with sleeves torn off, combat boots. Watches everything, says little. The most dangerous person in the room and the most broken.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Darrell V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V1.jpg" alt="Darrell V1" loading="lazy">
@@ -905,6 +964,22 @@
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v10.jpg" alt="Darrell V10" loading="lazy">
         <div class="variation-label"><div class="v-id">V10</div></div>
       </div>
+      <div class="variation-card regen" data-variation="Darrell V11" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V11.jpg" alt="Darrell V11" loading="lazy">
+        <div class="variation-label"><div class="v-id">V11</div></div>
+      </div>
+      <div class="variation-card regen" data-variation="Darrell V12" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V12.jpg" alt="Darrell V12" loading="lazy">
+        <div class="variation-label"><div class="v-id">V12</div></div>
+      </div>
+      <div class="variation-card regen" data-variation="Darrell V13" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V13.jpg" alt="Darrell V13" loading="lazy">
+        <div class="variation-label"><div class="v-id">V13</div></div>
+      </div>
+      <div class="variation-card regen" data-variation="Darrell V14" onclick="toggleSelect(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V14.jpg" alt="Darrell V14" loading="lazy">
+        <div class="variation-label"><div class="v-id">V14</div></div>
+      </div>
     </div>
     <div class="none-option">
       <button class="none-btn" onclick="toggleNone(this)">None of these</button>
@@ -922,6 +997,7 @@
       <span class="character-ref">Creature Design — Concept Variations</span>
     </div>
     <p class="character-notes">The entity sealed in the basement. More human than monster — but wrong. Every orifice stitched shut by the townspeople to keep the evil from seeping out. Gaunt, tall, unsettling. Tattered Quaker-era clothing, Frankenstein-meets-colonial. These are concept direction sheets — select the overall design direction that feels right.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Stitchman V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V1.jpg" alt="Stitchman V1" loading="lazy">
@@ -976,6 +1052,7 @@
       <span class="character-ref">Location Concept — Bobby's Sanctuary</span>
     </div>
     <p class="character-notes">Bobby's basement hideout — where he writes music, hides from the world above, and unknowingly sits above the sealed chamber. Guitar, cot, scattered papers, vinyl records, a single bare bulb. The trapdoor in the floor is the threshold to everything wrong with this house.</p>
+    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
     <div class="variation-grid">
       <div class="variation-card" data-variation="Basement V1" onclick="toggleSelect(this)">
         <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/basement/Basement_V1.jpg" alt="Basement V1" loading="lazy">
@@ -1551,6 +1628,68 @@
 
   // Initialize summary on load
   updateSummary();
+
+  // ---- ARCHIVE FEATURE ----
+  // Load archived state from localStorage
+  const archivedState = JSON.parse(localStorage.getItem('archivedVariations') || '{}');
+
+  // Inject archive buttons into every variation card and restore state
+  document.querySelectorAll('.variation-card').forEach(card => {
+    const btn = document.createElement('button');
+    btn.className = 'archive-btn';
+    btn.textContent = 'Archive';
+    btn.onclick = function(e) {
+      e.stopPropagation();
+      archiveCard(card);
+    };
+    card.appendChild(btn);
+
+    // Restore archived state
+    const key = card.getAttribute('data-variation');
+    if (archivedState[key]) {
+      card.classList.add('archived');
+      btn.textContent = 'Unarchive';
+    }
+  });
+
+  function archiveCard(card) {
+    const key = card.getAttribute('data-variation');
+    const btn = card.querySelector('.archive-btn');
+    card.classList.toggle('archived');
+    const isArchived = card.classList.contains('archived');
+    btn.textContent = isArchived ? 'Unarchive' : 'Archive';
+
+    // Persist
+    archivedState[key] = isArchived;
+    localStorage.setItem('archivedVariations', JSON.stringify(archivedState));
+    // Update the toggle count
+    updateArchiveToggle(card.closest('.character-section'));
+    // If it was selected, deselect it
+    if (isArchived && card.classList.contains('selected')) {
+      card.classList.remove('selected');
+      updateSummary();
+    }
+  }
+
+  function toggleArchive(el) {
+    const section = el.closest('.character-section');
+    section.classList.toggle('show-archived');
+    updateArchiveToggle(section);
+  }
+
+  function updateArchiveToggle(section) {
+    const toggle = section.querySelector('.archive-toggle');
+    if (!toggle) return;
+    const count = section.querySelectorAll('.variation-card.archived').length;
+    const isOpen = section.classList.contains('show-archived');
+    toggle.classList.toggle('open', isOpen);
+    toggle.innerHTML = '<span class="arrow">▶</span> ' +
+      (isOpen ? 'Hide' : 'Show') + ' archived variations' +
+      (count > 0 ? ' <span class="archive-count">' + count + '</span>' : '');
+  }
+
+  // Initialize all archive toggles with counts
+  document.querySelectorAll('.character-section').forEach(s => updateArchiveToggle(s));
 </script>
 
 </body>

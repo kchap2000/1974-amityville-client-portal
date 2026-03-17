@@ -4,6 +4,7 @@
   "private": true,
   "description": "Client portal for 1974 Amityville limited series",
   "dependencies": {
+    "googleapis": "^144.0.0",
     "resend": "^4.0.0"
   }
 }

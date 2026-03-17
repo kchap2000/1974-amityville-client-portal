@@ -854,6 +854,114 @@
   }
   .toast.show { transform: translateY(0); opacity: 1; }
 
+  /* ---- LOCK-IN SYSTEM ---- */
+  .lock-in-btn {
+    display: none;
+    margin-top: 0.8rem;
+    background: var(--gold); color: var(--bg);
+    border: none; padding: 0.6rem 1.8rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .lock-in-btn:hover { background: #d4b355; transform: translateY(-1px); }
+  .lock-in-btn.visible { display: inline-block; }
+
+  .locked-badge {
+    display: inline-block;
+    background: #4a9e6e; color: white;
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+    padding: 3px 8px; border-radius: 3px;
+    position: absolute; top: 8px; left: 8px; z-index: 5;
+  }
+  .locked-header-badge {
+    display: inline-block;
+    background: #4a9e6e; color: white;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 4px;
+    margin-left: 1rem; vertical-align: middle;
+  }
+  .variation-card.locked-card {
+    border-color: #4a9e6e !important;
+    box-shadow: 0 0 16px rgba(74,158,110,0.25);
+  }
+
+  .unlock-btn {
+    display: none;
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-dim); padding: 0.3rem 0.8rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-size: 0.65rem; letter-spacing: 0.06em;
+    margin-left: 0.5rem; transition: all 0.2s;
+  }
+  .unlock-btn:hover { border-color: var(--accent-red); color: var(--accent-red); }
+
+  /* Lock-in confirmation modal */
+  .lockin-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(0,0,0,0.85);
+    align-items: center; justify-content: center;
+  }
+  .lockin-modal-overlay.open { display: flex; }
+  .lockin-modal {
+    background: var(--bg-card); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 12px; padding: 2rem; max-width: 420px; width: 90%;
+    text-align: center;
+  }
+  .lockin-modal h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem; margin-bottom: 0.3rem;
+  }
+  .lockin-modal .modal-variation {
+    color: var(--gold); font-size: 0.9rem; margin-bottom: 1.2rem;
+  }
+  .lockin-modal img {
+    width: 160px; height: 160px; object-fit: cover;
+    border-radius: var(--radius); border: 2px solid var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .lockin-modal input, .lockin-modal textarea {
+    width: 100%; background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius); color: var(--text);
+    padding: 0.6rem 0.8rem; font-family: inherit;
+    font-size: 0.85rem; margin-bottom: 0.8rem;
+  }
+  .lockin-modal input::placeholder, .lockin-modal textarea::placeholder { color: var(--text-dim); }
+  .lockin-modal input:focus, .lockin-modal textarea:focus { outline: none; border-color: var(--gold-dim); }
+  .lockin-modal textarea { min-height: 60px; resize: vertical; }
+  .lockin-modal-actions {
+    display: flex; gap: 0.8rem; justify-content: center; margin-top: 1rem;
+  }
+  .lockin-confirm-btn {
+    background: #4a9e6e; color: white;
+    border: none; padding: 0.7rem 1.8rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .lockin-confirm-btn:hover { background: #5ab87e; }
+  .lockin-confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .lockin-cancel-btn {
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-dim); padding: 0.6rem 1.5rem;
+    border-radius: var(--radius); cursor: pointer;
+    font-size: 0.85rem; transition: all 0.2s;
+  }
+  .lockin-cancel-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+  /* Unlock PIN modal */
+  .unlock-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(0,0,0,0.85);
+    align-items: center; justify-content: center;
+  }
+  .unlock-modal-overlay.open { display: flex; }
+
   /* ---- FOOTER ---- */
   footer {
     text-align: center; padding: 3rem 2rem;
@@ -1049,6 +1157,36 @@
   <div class="lightbox-label" id="lightbox-label"></div>
 </div>
 
+<!-- LOCK-IN CONFIRMATION MODAL -->
+<div class="lockin-modal-overlay" id="lockin-modal">
+  <div class="lockin-modal">
+    <h3 id="lockin-modal-character">CHARACTER</h3>
+    <div class="modal-variation" id="lockin-modal-variation">V1</div>
+    <img id="lockin-modal-img" src="" alt="">
+    <div>
+      <input type="text" id="lockin-name" placeholder="Your name (required)">
+      <textarea id="lockin-notes" placeholder="Notes (optional)"></textarea>
+    </div>
+    <div class="lockin-modal-actions">
+      <button class="lockin-confirm-btn" id="lockin-confirm-btn" onclick="confirmLockIn()">Confirm Lock-In</button>
+      <button class="lockin-cancel-btn" onclick="closeLockInModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- UNLOCK PIN MODAL -->
+<div class="unlock-modal-overlay" id="unlock-modal">
+  <div class="lockin-modal">
+    <h3>Unlock Character</h3>
+    <div class="modal-variation" id="unlock-modal-character"></div>
+    <input type="password" id="unlock-pin" placeholder="Enter unlock PIN">
+    <div class="lockin-modal-actions">
+      <button class="lockin-confirm-btn" style="background:var(--accent-red);" onclick="confirmUnlock()">Unlock</button>
+      <button class="lockin-cancel-btn" onclick="closeUnlockModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast">Feedback submitted successfully!</div>
 
@@ -1060,6 +1198,7 @@
 <script>
   // ---- Project Data ----
   let projectData = null;
+  let lockedCharacters = {};
   const archivedState = JSON.parse(localStorage.getItem('archivedVariations') || '{}');
 
   async function loadProjectData() {
@@ -1073,6 +1212,8 @@
       updateSummary();
       initUpload();
       initNavObserver();
+      // Fetch lock-in state from server after rendering
+      await fetchLockInState();
     } catch (err) {
       console.error('Failed to load project data:', err);
     }
@@ -1082,9 +1223,13 @@
   function renderDocuments() {
     const grid = document.getElementById('doc-grid');
     grid.innerHTML = projectData.documents.map(doc => {
-      const isAvailable = doc.status === 'available' && doc.file;
+      const isAvailable = doc.status === 'available' && (doc.file || doc.googleDocEmbed);
       const cls = isAvailable ? 'doc-card has-file' : 'doc-card coming-soon';
-      const onclick = isAvailable ? `onclick="openDocViewer('${doc.file}', '${(doc.viewerTitle || doc.title).replace(/'/g, "\\'")}')"` : '';
+      // Use Google Doc embed URL if available, otherwise fall back to file
+      const viewerUrl = doc.googleDocEmbed || doc.file || '';
+      const viewerTitle = (doc.viewerTitle || doc.title).replace(/'/g, "\\'");
+      const isGoogleDoc = !!doc.googleDocEmbed;
+      const onclick = isAvailable ? `onclick="openDocViewer('${viewerUrl}', '${viewerTitle}', ${isGoogleDoc})"` : '';
       return `<div class="${cls}" ${onclick}>
         <div class="doc-icon">${doc.icon}</div>
         <h3>${doc.title}</h3>
@@ -1102,14 +1247,15 @@
       <div class="character-section" data-character="${char.name}">
         <div class="character-divider"></div>
         <div class="character-header">
-          <h3>${char.displayName}</h3>
+          <h3>${char.displayName}<span class="locked-header-badge" style="display:none;" data-lock-header="${char.name}">LOCKED &#10003;</span></h3>
           <span class="character-ref">Reference: ${char.reference}</span>
+          <button class="unlock-btn" data-unlock="${char.name}" onclick="event.stopPropagation();openUnlockModal('${char.name.replace(/'/g, "\\'")}')" style="display:none;">Unlock</button>
         </div>
         <p class="character-notes">${char.notes}</p>
         <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">&#9654;</span> Show archived variations</div>
         <div class="variation-grid">
           ${char.variations.filter(v => v.image).map(v => `
-            <div class="variation-card ${v.regen ? 'regen' : ''} ${archivedState[v.id] ? 'archived' : ''}" data-variation="${v.id}" onclick="toggleSelect(this)">
+            <div class="variation-card ${v.regen ? 'regen' : ''} ${archivedState[v.id] ? 'archived' : ''}" data-variation="${v.id}" data-original="${v.originalPath || ''}" onclick="toggleSelect(this)">
               <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button>
               <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">&#11015;</a>
               <span class="check-badge">&#10003;</span>
@@ -1118,6 +1264,9 @@
               <div class="variation-label"><div class="v-id">${v.label}</div></div>
             </div>
           `).join('')}
+        </div>
+        <div class="lock-in-action" data-lockin-action="${char.name}">
+          <button class="lock-in-btn" onclick="openLockInModal('${char.name.replace(/'/g, "\\'")}')">LOCK IN SELECTION</button>
         </div>
         <div class="none-option">
           <button class="none-btn" onclick="toggleNone(this)">None of these</button>
@@ -1173,9 +1322,11 @@
 
   // ---- Document Viewer ----
   let currentDocUrl = '';
+  let currentDocIsGoogleDoc = false;
 
-  function openDocViewer(url, title) {
+  function openDocViewer(url, title, isGoogleDoc) {
     currentDocUrl = url;
+    currentDocIsGoogleDoc = !!isGoogleDoc;
     document.getElementById('doc-viewer-title').textContent = title || 'Document';
     const iframe = document.getElementById('doc-iframe');
     const fallback = document.getElementById('doc-fallback');
@@ -1193,6 +1344,7 @@
       fallback.style.display = 'flex';
     };
 
+    // Google Doc embeds load directly via their published URL
     iframe.src = url;
     setTimeout(function() { loader.classList.add('hidden'); }, 8000);
     document.getElementById('doc-viewer').classList.add('open');
@@ -1210,32 +1362,48 @@
   }
 
   function downloadDoc() {
-    const a = document.createElement('a');
-    a.href = currentDocUrl;
-    a.download = currentDocUrl.split('/').pop();
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    if (currentDocIsGoogleDoc) {
+      // For Google Docs, open the export URL in a new tab (PDF export)
+      const exportUrl = currentDocUrl.replace('/pub?embedded=true', '/export?format=pdf');
+      window.open(exportUrl, '_blank');
+    } else {
+      const a = document.createElement('a');
+      a.href = currentDocUrl;
+      a.download = currentDocUrl.split('/').pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   }
 
   function openDocNewTab() {
-    window.open(currentDocUrl, '_blank');
+    if (currentDocIsGoogleDoc) {
+      // Open the non-embedded version
+      window.open(currentDocUrl.replace('?embedded=true', ''), '_blank');
+    } else {
+      window.open(currentDocUrl, '_blank');
+    }
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeDocViewer(); closeLightbox(); }
+    if (e.key === 'Escape') { closeDocViewer(); closeLightbox(); closeLockInModal(); closeUnlockModal(); }
   });
 
   // ---- Selection Logic ----
   function toggleSelect(card) {
-    card.classList.toggle('selected');
+    // Don't allow toggling if this character is locked
     const section = card.closest('.character-section');
+    const charName = section.dataset.character;
+    if (lockedCharacters[charName]) return;
+
+    card.classList.toggle('selected');
     const noneBtn = section.querySelector('.none-btn');
     if (card.classList.contains('selected') && noneBtn.classList.contains('active')) {
       noneBtn.classList.remove('active');
       section.querySelector('.change-request').classList.remove('visible');
     }
     updateSummary();
+    updateLockInButtons();
   }
 
   function toggleNone(btn) {
@@ -1720,6 +1888,257 @@
     const el = document.getElementById('upload-message');
     el.className = 'upload-message';
     el.textContent = '';
+  }
+
+  // ---- LOCK-IN SYSTEM ----
+  let pendingLockCharacter = '';
+
+  function updateLockInButtons() {
+    document.querySelectorAll('.character-section').forEach(section => {
+      const charName = section.dataset.character;
+      const actionDiv = section.querySelector('[data-lockin-action]');
+      const lockBtn = actionDiv ? actionDiv.querySelector('.lock-in-btn') : null;
+      if (!lockBtn) return;
+
+      // Hide lock-in button if character is already locked
+      if (lockedCharacters[charName]) {
+        lockBtn.classList.remove('visible');
+        return;
+      }
+
+      // Show lock-in button only when exactly one variation is selected
+      const selectedCards = section.querySelectorAll('.variation-card.selected');
+      if (selectedCards.length === 1) {
+        lockBtn.classList.add('visible');
+      } else {
+        lockBtn.classList.remove('visible');
+      }
+    });
+  }
+
+  function openLockInModal(charName) {
+    const section = document.querySelector(`.character-section[data-character="${charName}"]`);
+    if (!section) return;
+    const selectedCard = section.querySelector('.variation-card.selected');
+    if (!selectedCard) return;
+
+    pendingLockCharacter = charName;
+    const variationId = selectedCard.querySelector('.v-id').textContent;
+    const imgSrc = selectedCard.querySelector('img').src;
+
+    document.getElementById('lockin-modal-character').textContent = charName;
+    document.getElementById('lockin-modal-variation').textContent = variationId;
+    document.getElementById('lockin-modal-img').src = imgSrc;
+    document.getElementById('lockin-name').value = '';
+    document.getElementById('lockin-notes').value = '';
+    document.getElementById('lockin-modal').classList.add('open');
+  }
+
+  function closeLockInModal() {
+    document.getElementById('lockin-modal').classList.remove('open');
+    pendingLockCharacter = '';
+  }
+
+  async function confirmLockIn() {
+    const charName = pendingLockCharacter;
+    if (!charName) return;
+
+    const lockedBy = document.getElementById('lockin-name').value.trim();
+    if (!lockedBy) {
+      document.getElementById('lockin-name').style.borderColor = 'var(--accent-red)';
+      document.getElementById('lockin-name').focus();
+      return;
+    }
+
+    const notes = document.getElementById('lockin-notes').value.trim();
+    const section = document.querySelector(`.character-section[data-character="${charName}"]`);
+    const selectedCard = section.querySelector('.variation-card.selected');
+    if (!selectedCard) return;
+
+    const variation = selectedCard.querySelector('.v-id').textContent;
+    const imageUrl = selectedCard.querySelector('img').getAttribute('src');
+    const originalFilePath = selectedCard.getAttribute('data-original') || '';
+
+    const confirmBtn = document.getElementById('lockin-confirm-btn');
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Locking in...';
+
+    try {
+      const response = await fetch('/api/lock-in', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          character: charName,
+          variation: variation,
+          imageUrl: imageUrl,
+          originalFilePath: originalFilePath,
+          lockedBy: lockedBy,
+          notes: notes,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Lock-in failed');
+
+      // Apply locked state locally
+      applyLockedState(charName, variation, imageUrl);
+      closeLockInModal();
+
+      // Show success toast
+      const toast = document.getElementById('toast');
+      toast.textContent = `${charName} locked in as ${variation}!`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    } catch (err) {
+      console.error('Lock-in error:', err);
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Lock-in failed: ' + err.message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    } finally {
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Confirm Lock-In';
+    }
+  }
+
+  function applyLockedState(charName, variation, imageUrl) {
+    lockedCharacters[charName] = { variation, imageUrl };
+    const section = document.querySelector(`.character-section[data-character="${charName}"]`);
+    if (!section) return;
+
+    // Show locked header badge
+    const headerBadge = section.querySelector(`[data-lock-header="${charName}"]`);
+    if (headerBadge) headerBadge.style.display = 'inline-block';
+
+    // Show unlock button
+    const unlockBtn = section.querySelector(`[data-unlock="${charName}"]`);
+    if (unlockBtn) unlockBtn.style.display = 'inline-block';
+
+    // Hide lock-in button
+    const lockBtn = section.querySelector('.lock-in-btn');
+    if (lockBtn) lockBtn.classList.remove('visible');
+
+    // Mark the locked card and auto-archive others
+    const cards = section.querySelectorAll('.variation-card');
+    cards.forEach(card => {
+      const vId = card.querySelector('.v-id').textContent;
+      if (vId === variation) {
+        card.classList.add('selected', 'locked-card');
+        card.classList.remove('archived');
+      } else {
+        // Auto-archive non-selected variations
+        card.classList.remove('selected');
+        card.classList.add('archived');
+        const archBtn = card.querySelector('.archive-btn');
+        if (archBtn) archBtn.textContent = 'Unarchive';
+        archivedState[card.getAttribute('data-variation')] = true;
+      }
+    });
+
+    // Save archive state
+    localStorage.setItem('archivedVariations', JSON.stringify(archivedState));
+    updateArchiveToggle(section);
+
+    // Hide none-btn and change-request
+    const noneBtn = section.querySelector('.none-btn');
+    if (noneBtn) {
+      noneBtn.classList.remove('active');
+      noneBtn.style.display = 'none';
+    }
+    const changeReq = section.querySelector('.change-request');
+    if (changeReq) changeReq.classList.remove('visible');
+
+    updateSummary();
+  }
+
+  function openUnlockModal(charName) {
+    document.getElementById('unlock-modal-character').textContent = charName;
+    document.getElementById('unlock-pin').value = '';
+    document.getElementById('unlock-modal').classList.add('open');
+    pendingLockCharacter = charName;
+  }
+
+  function closeUnlockModal() {
+    document.getElementById('unlock-modal').classList.remove('open');
+    pendingLockCharacter = '';
+  }
+
+  async function confirmUnlock() {
+    const charName = pendingLockCharacter;
+    if (!charName) return;
+
+    const pin = document.getElementById('unlock-pin').value.trim();
+    if (!pin) {
+      document.getElementById('unlock-pin').style.borderColor = 'var(--accent-red)';
+      document.getElementById('unlock-pin').focus();
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/lock-in', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'unlock',
+          character: charName,
+          unlockPin: pin,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unlock failed');
+
+      // Remove locked state
+      delete lockedCharacters[charName];
+      const section = document.querySelector(`.character-section[data-character="${charName}"]`);
+      if (section) {
+        // Hide locked badge and unlock button
+        const headerBadge = section.querySelector(`[data-lock-header="${charName}"]`);
+        if (headerBadge) headerBadge.style.display = 'none';
+        const unlockBtn = section.querySelector(`[data-unlock="${charName}"]`);
+        if (unlockBtn) unlockBtn.style.display = 'none';
+
+        // Remove locked-card class and restore cards
+        section.querySelectorAll('.variation-card').forEach(card => {
+          card.classList.remove('locked-card');
+        });
+
+        // Re-show none button
+        const noneBtn = section.querySelector('.none-btn');
+        if (noneBtn) noneBtn.style.display = '';
+      }
+
+      closeUnlockModal();
+      updateLockInButtons();
+      updateSummary();
+
+      const toast = document.getElementById('toast');
+      toast.textContent = `${charName} unlocked.`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    } catch (err) {
+      console.error('Unlock error:', err);
+      const toast = document.getElementById('toast');
+      toast.textContent = err.message === 'Invalid unlock PIN' ? 'Invalid PIN. Try again.' : 'Unlock failed: ' + err.message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+  }
+
+  async function fetchLockInState() {
+    try {
+      const response = await fetch('/api/get-selections');
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data.success && data.selections && data.selections.length > 0) {
+        data.selections.forEach(sel => {
+          applyLockedState(sel.character, sel.variation, sel.imageUrl);
+        });
+      }
+    } catch (err) {
+      // Silently fail — portal works without server lock-in state
+      console.log('Could not fetch lock-in state (server may not be configured):', err.message);
+    }
   }
 
   // ---- ARCHIVE FEATURE ----

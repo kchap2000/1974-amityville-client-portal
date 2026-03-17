@@ -11,7 +11,7 @@
       "id": "cinema-moodboard",
       "title": "Cinema Moodboard / Presentation",
       "description": "The full pitch presentation with visual references, cinematography direction, and mood boards.",
-      "icon": "🎬",
+      "icon": "\ud83c\udfac",
       "type": "Presentation \u00b7 PDF",
       "file": "docs/CINEMAMOODBOARD.pdf",
       "viewerTitle": "Cinema Moodboard \u2014 Limited Series Presentation",
@@ -20,10 +20,11 @@
     {
       "id": "film-bible",
       "title": "1974 Amityville Film Bible",
-      "description": "Complete creative vision, themes, tone, and world-building reference for the project.",
+      "description": "Complete creative vision, themes, tone, and world-building reference. Auto-updated when characters are locked in.",
       "icon": "\ud83d\udcd6",
-      "type": "Film Bible \u00b7 PDF",
+      "type": "Film Bible \u00b7 Google Doc",
       "file": "docs/1974_AMITYVILLE_FILM_BIBLE.pdf",
+      "googleDocEmbed": "https://docs.google.com/document/d/GOOGLE_DOC_ID/pub?embedded=true",
       "viewerTitle": "1974 Amityville \u2014 Film & Scene Bible",
       "status": "available"
     },
@@ -74,18 +75,18 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Bobby V1", "label": "V1", "image": "images/bobby/Bobby_V1.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V2", "label": "V2", "image": "images/bobby/Bobby_V2.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V3", "label": "V3", "image": "images/bobby/Bobby_V3.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V4", "label": "V4", "image": "images/bobby/Bobby_V4.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V5", "label": "V5", "image": "images/bobby/Bobby_V5.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V6", "label": "V6", "image": "images/bobby/bobby_v6.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V7", "label": "V7", "image": "images/bobby/bobby_v7.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V8", "label": "V8", "image": "images/bobby/bobby_v8.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V9", "label": "V9", "image": "images/bobby/bobby_v9.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V10", "label": "V10", "image": "images/bobby/bobby_v10.jpg", "regen": false, "archived": false },
-        { "id": "Bobby V11", "label": "V11", "image": "images/bobby/Bobby_V11.jpg", "regen": true, "archived": false },
-        { "id": "Bobby V12", "label": "V12", "image": "images/bobby/Bobby_V12.jpg", "regen": true, "archived": false }
+        { "id": "Bobby V1", "label": "V1", "image": "images/bobby/Bobby_V1.jpg", "originalPath": "Casting/Bobby/Bobby_V1.png", "regen": false, "archived": false },
+        { "id": "Bobby V2", "label": "V2", "image": "images/bobby/Bobby_V2.jpg", "originalPath": "Casting/Bobby/Bobby_V2.png", "regen": false, "archived": false },
+        { "id": "Bobby V3", "label": "V3", "image": "images/bobby/Bobby_V3.jpg", "originalPath": "Casting/Bobby/Bobby_V3.png", "regen": false, "archived": false },
+        { "id": "Bobby V4", "label": "V4", "image": "images/bobby/Bobby_V4.jpg", "originalPath": "Casting/Bobby/Bobby_V4.png", "regen": false, "archived": false },
+        { "id": "Bobby V5", "label": "V5", "image": "images/bobby/Bobby_V5.jpg", "originalPath": "Casting/Bobby/Bobby_V5.png", "regen": false, "archived": false },
+        { "id": "Bobby V6", "label": "V6", "image": "images/bobby/bobby_v6.jpg", "originalPath": "Casting/Bobby/Bobby_V6.png", "regen": false, "archived": false },
+        { "id": "Bobby V7", "label": "V7", "image": "images/bobby/bobby_v7.jpg", "originalPath": "Casting/Bobby/Bobby_V7.png", "regen": false, "archived": false },
+        { "id": "Bobby V8", "label": "V8", "image": "images/bobby/bobby_v8.jpg", "originalPath": "Casting/Bobby/Bobby_V8.png", "regen": false, "archived": false },
+        { "id": "Bobby V9", "label": "V9", "image": "images/bobby/bobby_v9.jpg", "originalPath": "Casting/Bobby/Bobby_V9.png", "regen": false, "archived": false },
+        { "id": "Bobby V10", "label": "V10", "image": "images/bobby/bobby_v10.jpg", "originalPath": "Casting/Bobby/Bobby_V10.png", "regen": false, "archived": false },
+        { "id": "Bobby V11", "label": "V11", "image": "images/bobby/Bobby_V11.jpg", "originalPath": "", "regen": true, "archived": false },
+        { "id": "Bobby V12", "label": "V12", "image": "images/bobby/Bobby_V12.jpg", "originalPath": "", "regen": true, "archived": false }
       ]
     },
     {
@@ -97,16 +98,16 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Susie V1", "label": "V1", "image": "images/susie/Susie_V1.jpg", "regen": false, "archived": false },
-        { "id": "Susie V2", "label": "V2", "image": "images/susie/Susie_V2.jpg", "regen": false, "archived": false },
-        { "id": "Susie V3", "label": "V3", "image": "images/susie/Susie_V3.jpg", "regen": false, "archived": false },
-        { "id": "Susie V4", "label": "V4", "image": "images/susie/Susie_V4.jpg", "regen": false, "archived": false },
-        { "id": "Susie V5", "label": "V5", "image": "images/susie/Susie_V5.jpg", "regen": false, "archived": false },
-        { "id": "Susie V6", "label": "V6", "image": "images/susie/susie_v6.jpg", "regen": false, "archived": false },
-        { "id": "Susie V7", "label": "V7", "image": "images/susie/susie_v7.jpg", "regen": false, "archived": false },
-        { "id": "Susie V8", "label": "V8", "image": "images/susie/susie_v8.jpg", "regen": false, "archived": false },
-        { "id": "Susie V9", "label": "V9", "image": "images/susie/susie_v9.jpg", "regen": false, "archived": false },
-        { "id": "Susie V10", "label": "V10", "image": "images/susie/susie_v10.jpg", "regen": false, "archived": false }
+        { "id": "Susie V1", "label": "V1", "image": "images/susie/Susie_V1.jpg", "originalPath": "Casting/Susie/Susie_V1.png", "regen": false, "archived": false },
+        { "id": "Susie V2", "label": "V2", "image": "images/susie/Susie_V2.jpg", "originalPath": "Casting/Susie/Susie_V2.png", "regen": false, "archived": false },
+        { "id": "Susie V3", "label": "V3", "image": "images/susie/Susie_V3.jpg", "originalPath": "Casting/Susie/Susie_V3.png", "regen": false, "archived": false },
+        { "id": "Susie V4", "label": "V4", "image": "images/susie/Susie_V4.jpg", "originalPath": "Casting/Susie/Susie_V4.png", "regen": false, "archived": false },
+        { "id": "Susie V5", "label": "V5", "image": "images/susie/Susie_V5.jpg", "originalPath": "Casting/Susie/Susie_V5.png", "regen": false, "archived": false },
+        { "id": "Susie V6", "label": "V6", "image": "images/susie/susie_v6.jpg", "originalPath": "Casting/Susie/Susie_V6.png", "regen": false, "archived": false },
+        { "id": "Susie V7", "label": "V7", "image": "images/susie/susie_v7.jpg", "originalPath": "Casting/Susie/Susie_V7.png", "regen": false, "archived": false },
+        { "id": "Susie V8", "label": "V8", "image": "images/susie/susie_v8.jpg", "originalPath": "Casting/Susie/Susie_V8.png", "regen": false, "archived": false },
+        { "id": "Susie V9", "label": "V9", "image": "images/susie/susie_v9.jpg", "originalPath": "Casting/Susie/Susie_V9.png", "regen": false, "archived": false },
+        { "id": "Susie V10", "label": "V10", "image": "images/susie/susie_v10.jpg", "originalPath": "Casting/Susie/Susie_V10.png", "regen": false, "archived": false }
       ]
     },
     {
@@ -118,16 +119,16 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Carl V1", "label": "V1", "image": "images/carl/Carl_V1.jpg", "regen": false, "archived": false },
-        { "id": "Carl V2", "label": "V2", "image": "images/carl/Carl_V2.jpg", "regen": false, "archived": false },
-        { "id": "Carl V3", "label": "V3", "image": "images/carl/Carl_V3.jpg", "regen": false, "archived": false },
-        { "id": "Carl V4", "label": "V4", "image": "images/carl/Carl_V4.jpg", "regen": false, "archived": false },
-        { "id": "Carl V5", "label": "V5", "image": "images/carl/Carl_V5.jpg", "regen": false, "archived": false },
-        { "id": "Carl V6", "label": "V6", "image": "images/carl/carl_v6.jpg", "regen": false, "archived": false },
-        { "id": "Carl V7", "label": "V7", "image": "images/carl/carl_v7.jpg", "regen": false, "archived": false },
-        { "id": "Carl V8", "label": "V8", "image": "images/carl/carl_v8.jpg", "regen": false, "archived": false },
-        { "id": "Carl V9", "label": "V9", "image": "images/carl/carl_v9.jpg", "regen": false, "archived": false },
-        { "id": "Carl V10", "label": "V10", "image": "images/carl/carl_v10.jpg", "regen": false, "archived": false }
+        { "id": "Carl V1", "label": "V1", "image": "images/carl/Carl_V1.jpg", "originalPath": "Casting/Carl/Carl_V1.png", "regen": false, "archived": false },
+        { "id": "Carl V2", "label": "V2", "image": "images/carl/Carl_V2.jpg", "originalPath": "Casting/Carl/Carl_V2.png", "regen": false, "archived": false },
+        { "id": "Carl V3", "label": "V3", "image": "images/carl/Carl_V3.jpg", "originalPath": "Casting/Carl/Carl_V3.png", "regen": false, "archived": false },
+        { "id": "Carl V4", "label": "V4", "image": "images/carl/Carl_V4.jpg", "originalPath": "Casting/Carl/Carl_V4.png", "regen": false, "archived": false },
+        { "id": "Carl V5", "label": "V5", "image": "images/carl/Carl_V5.jpg", "originalPath": "Casting/Carl/Carl_V5.png", "regen": false, "archived": false },
+        { "id": "Carl V6", "label": "V6", "image": "images/carl/carl_v6.jpg", "originalPath": "Casting/Carl/Carl_V6.png", "regen": false, "archived": false },
+        { "id": "Carl V7", "label": "V7", "image": "images/carl/carl_v7.jpg", "originalPath": "Casting/Carl/Carl_V7.png", "regen": false, "archived": false },
+        { "id": "Carl V8", "label": "V8", "image": "images/carl/carl_v8.jpg", "originalPath": "Casting/Carl/Carl_V8.png", "regen": false, "archived": false },
+        { "id": "Carl V9", "label": "V9", "image": "images/carl/carl_v9.jpg", "originalPath": "Casting/Carl/Carl_V9.png", "regen": false, "archived": false },
+        { "id": "Carl V10", "label": "V10", "image": "images/carl/carl_v10.jpg", "originalPath": "Casting/Carl/Carl_V10.png", "regen": false, "archived": false }
       ]
     },
     {
@@ -139,20 +140,20 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Darrell V1", "label": "V1", "image": "images/darrell/Darrell_V1.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V2", "label": "V2", "image": "images/darrell/Darrell_V2.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V3", "label": "V3", "image": "images/darrell/Darrell_V3.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V4", "label": "V4", "image": "images/darrell/Darrell_V4.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V5", "label": "V5", "image": "images/darrell/Darrell_V5.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V6", "label": "V6", "image": "images/darrell/darrell_v6.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V7", "label": "V7", "image": "images/darrell/darrell_v7.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V8", "label": "V8", "image": "images/darrell/darrell_v8.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V9", "label": "V9", "image": "images/darrell/darrell_v9.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V10", "label": "V10", "image": "images/darrell/darrell_v10.jpg", "regen": false, "archived": false },
-        { "id": "Darrell V11", "label": "V11", "image": "images/darrell/Darrell_V11.jpg", "regen": true, "archived": false },
-        { "id": "Darrell V12", "label": "V12", "image": "images/darrell/Darrell_V12.jpg", "regen": true, "archived": false },
-        { "id": "Darrell V13", "label": "V13", "image": "images/darrell/Darrell_V13.jpg", "regen": true, "archived": false },
-        { "id": "Darrell V14", "label": "V14", "image": "images/darrell/Darrell_V14.jpg", "regen": true, "archived": false }
+        { "id": "Darrell V1", "label": "V1", "image": "images/darrell/Darrell_V1.jpg", "originalPath": "Casting/Darrell/Darrell_V1.png", "regen": false, "archived": false },
+        { "id": "Darrell V2", "label": "V2", "image": "images/darrell/Darrell_V2.jpg", "originalPath": "Casting/Darrell/Darrell_V2.png", "regen": false, "archived": false },
+        { "id": "Darrell V3", "label": "V3", "image": "images/darrell/Darrell_V3.jpg", "originalPath": "Casting/Darrell/Darrell_V3.png", "regen": false, "archived": false },
+        { "id": "Darrell V4", "label": "V4", "image": "images/darrell/Darrell_V4.jpg", "originalPath": "Casting/Darrell/Darrell_V4.png", "regen": false, "archived": false },
+        { "id": "Darrell V5", "label": "V5", "image": "images/darrell/Darrell_V5.jpg", "originalPath": "Casting/Darrell/Darrell_V5.png", "regen": false, "archived": false },
+        { "id": "Darrell V6", "label": "V6", "image": "images/darrell/darrell_v6.jpg", "originalPath": "Casting/Darrell/Darrell_V6.png", "regen": false, "archived": false },
+        { "id": "Darrell V7", "label": "V7", "image": "images/darrell/darrell_v7.jpg", "originalPath": "Casting/Darrell/Darrell_V7.png", "regen": false, "archived": false },
+        { "id": "Darrell V8", "label": "V8", "image": "images/darrell/darrell_v8.jpg", "originalPath": "Casting/Darrell/Darrell_V8.png", "regen": false, "archived": false },
+        { "id": "Darrell V9", "label": "V9", "image": "images/darrell/darrell_v9.jpg", "originalPath": "Casting/Darrell/Darrell_V9.png", "regen": false, "archived": false },
+        { "id": "Darrell V10", "label": "V10", "image": "images/darrell/darrell_v10.jpg", "originalPath": "Casting/Darrell/Darrell_V10.png", "regen": false, "archived": false },
+        { "id": "Darrell V11", "label": "V11", "image": "images/darrell/Darrell_V11.jpg", "originalPath": "", "regen": true, "archived": false },
+        { "id": "Darrell V12", "label": "V12", "image": "images/darrell/Darrell_V12.jpg", "originalPath": "", "regen": true, "archived": false },
+        { "id": "Darrell V13", "label": "V13", "image": "images/darrell/Darrell_V13.jpg", "originalPath": "", "regen": true, "archived": false },
+        { "id": "Darrell V14", "label": "V14", "image": "images/darrell/Darrell_V14.jpg", "originalPath": "", "regen": true, "archived": false }
       ]
     },
     {
@@ -164,15 +165,15 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Stitchman V1", "label": "V1", "image": "images/stitchman/Stitchman_V1.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V2", "label": "V2", "image": "images/stitchman/Stitchman_V2.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V3", "label": "V3", "image": "images/stitchman/Stitchman_V3.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V4", "label": "V4", "image": "images/stitchman/Stitchman_V4.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V5", "label": "V5", "image": "images/stitchman/Stitchman_V5.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V6", "label": "V6", "image": "images/stitchman/Stitchman_V6.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V7", "label": "V7", "image": "images/stitchman/Stitchman_V7.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V8", "label": "V8", "image": "images/stitchman/Stitchman_V8.jpg", "regen": false, "archived": false },
-        { "id": "Stitchman V9", "label": "V9", "image": "images/stitchman/Stitchman_V9.jpg", "regen": false, "archived": false }
+        { "id": "Stitchman V1", "label": "V1", "image": "images/stitchman/Stitchman_V1.jpg", "originalPath": "Stitchman Options/hf_20260316_174709_f3aea44f-630a-4f49-9bd1-3bf998acf7f2.png", "regen": false, "archived": false },
+        { "id": "Stitchman V2", "label": "V2", "image": "images/stitchman/Stitchman_V2.jpg", "originalPath": "Stitchman Options/hf_20260316_174740_b4acbb58-3e8b-4f2c-aa9a-36ad52e9451b.png", "regen": false, "archived": false },
+        { "id": "Stitchman V3", "label": "V3", "image": "images/stitchman/Stitchman_V3.jpg", "originalPath": "Stitchman Options/hf_20260316_180922_917a9b35-a9c5-4114-9f67-fca7db38f39f.png", "regen": false, "archived": false },
+        { "id": "Stitchman V4", "label": "V4", "image": "images/stitchman/Stitchman_V4.jpg", "originalPath": "Stitchman Options/hf_20260316_181635_da1a9d15-a3a3-4a1d-9b93-c9c47bd45b0d.png", "regen": false, "archived": false },
+        { "id": "Stitchman V5", "label": "V5", "image": "images/stitchman/Stitchman_V5.jpg", "originalPath": "Stitchman Options/hf_20260316_183055_2b04b8c5-d7f8-40dc-a06f-6b4d848f57ab.png", "regen": false, "archived": false },
+        { "id": "Stitchman V6", "label": "V6", "image": "images/stitchman/Stitchman_V6.jpg", "originalPath": "Stitchman Options/hf_20260316_183115_6d178edc-cde4-480d-9a18-33712872c3b6.png", "regen": false, "archived": false },
+        { "id": "Stitchman V7", "label": "V7", "image": "images/stitchman/Stitchman_V7.jpg", "originalPath": "Stitchman Options/hf_20260316_184854_d071be19-e28b-4e13-8126-e0806eeed857(2).png", "regen": false, "archived": false },
+        { "id": "Stitchman V8", "label": "V8", "image": "images/stitchman/Stitchman_V8.jpg", "originalPath": "Stitchman Options/hf_20260316_184906_5833af92-a83d-4d3c-9487-254f99909937.png", "regen": false, "archived": false },
+        { "id": "Stitchman V9", "label": "V9", "image": "images/stitchman/Stitchman_V9.jpg", "originalPath": "Stitchman Options/hf_20260316_185528_1202944c-93b0-4e0c-b5f5-10c3e90e0e50.png", "regen": false, "archived": false }
       ]
     },
     {
@@ -184,62 +185,20 @@
       "status": "review",
       "locked_variation": null,
       "variations": [
-        { "id": "Basement V1", "label": "V1", "image": "images/basement/Basement_V1.jpg", "regen": false, "archived": false },
-        { "id": "Basement V2", "label": "V2", "image": "images/basement/Basement_V2.jpg", "regen": false, "archived": false },
-        { "id": "Basement V3", "label": "V3", "image": "images/basement/Basement_V3.jpg", "regen": false, "archived": false }
+        { "id": "Basement V1", "label": "V1", "image": "images/basement/Basement_V1.jpg", "originalPath": "Basement Options/hf_20260316_172005_df06dafd-1f30-420c-8b2c-3aac354864cf.png", "regen": false, "archived": false },
+        { "id": "Basement V2", "label": "V2", "image": "images/basement/Basement_V2.jpg", "originalPath": "Basement Options/hf_20260316_173920_3491109c-0259-4332-825e-74ca7711188d.png", "regen": false, "archived": false },
+        { "id": "Basement V3", "label": "V3", "image": "images/basement/Basement_V3.jpg", "originalPath": "Basement Options/hf_20260316_173930_36963bd3-0aa6-4310-aa00-385e263de74b.png", "regen": false, "archived": false }
       ]
     }
   ],
   "moodboard": [
-    {
-      "id": "lake-mungo",
-      "style": "Lake Mungo",
-      "description": "Cold, desaturated tones. Eerie stillness. Documentary-style detachment.",
-      "image": "images/moodboard/lake_mungo.jpg",
-      "archived": false
-    },
-    {
-      "id": "deborah-logan",
-      "style": "The Taking of Deborah Logan",
-      "description": "Warmer wood tones with visible crew. Found-footage naturalism.",
-      "image": "images/moodboard/deborah_logan.jpg",
-      "archived": false
-    },
-    {
-      "id": "the-fields",
-      "style": "The Fields",
-      "description": "Warm amber palette. Aged wallpaper texture. Rural domestic unease.",
-      "image": "images/moodboard/the_fields.jpg",
-      "archived": false
-    },
-    {
-      "id": "amityville-3d",
-      "style": "Amityville 3-D",
-      "description": "Deep blue-green shadows. Classic '80s horror lighting. Heavy contrast.",
-      "image": "images/moodboard/amityville_3d.jpg",
-      "archived": false
-    },
-    {
-      "id": "amityville-1979",
-      "style": "Amityville 1979",
-      "description": "Rich warm wood. Period-accurate '70s interiors. Lived-in authenticity.",
-      "image": "images/moodboard/amityville_1979.jpg",
-      "archived": false
-    },
-    {
-      "id": "texas-chainsaw-1974",
-      "style": "Texas Chainsaw 1974",
-      "description": "Washed-out, sun-baked decay. Gritty 16mm texture. Oppressive heat.",
-      "image": "images/moodboard/texas_chainsaw_1974.jpg",
-      "archived": false
-    },
-    {
-      "id": "jessica-to-death",
-      "style": "Let\u2019s Scare Jessica to Death",
-      "description": "Muted earth tones. Exposed brick warmth. Quiet rural dread.",
-      "image": "images/moodboard/jessica_to_death.jpg",
-      "archived": false
-    }
+    { "id": "lake-mungo", "style": "Lake Mungo", "description": "Cold, desaturated tones. Eerie stillness. Documentary-style detachment.", "image": "images/moodboard/lake_mungo.jpg", "archived": false },
+    { "id": "deborah-logan", "style": "The Taking of Deborah Logan", "description": "Warmer wood tones with visible crew. Found-footage naturalism.", "image": "images/moodboard/deborah_logan.jpg", "archived": false },
+    { "id": "the-fields", "style": "The Fields", "description": "Warm amber palette. Aged wallpaper texture. Rural domestic unease.", "image": "images/moodboard/the_fields.jpg", "archived": false },
+    { "id": "amityville-3d", "style": "Amityville 3-D", "description": "Deep blue-green shadows. Classic '80s horror lighting. Heavy contrast.", "image": "images/moodboard/amityville_3d.jpg", "archived": false },
+    { "id": "amityville-1979", "style": "Amityville 1979", "description": "Rich warm wood. Period-accurate '70s interiors. Lived-in authenticity.", "image": "images/moodboard/amityville_1979.jpg", "archived": false },
+    { "id": "texas-chainsaw-1974", "style": "Texas Chainsaw 1974", "description": "Washed-out, sun-baked decay. Gritty 16mm texture. Oppressive heat.", "image": "images/moodboard/texas_chainsaw_1974.jpg", "archived": false },
+    { "id": "jessica-to-death", "style": "Let\u2019s Scare Jessica to Death", "description": "Muted earth tones. Exposed brick warmth. Quiet rural dread.", "image": "images/moodboard/jessica_to_death.jpg", "archived": false }
   ],
   "gap_analysis": {
     "pending_questions": [],

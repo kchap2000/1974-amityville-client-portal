@@ -876,7 +876,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">1974 AMITYVILLE <span>CLIENT PORTAL</span></div>
+  <div class="logo" id="nav-logo">1974 AMITYVILLE <span>CLIENT PORTAL</span></div>
   <ul>
     <li><a href="#documents">Documents</a></li>
     <li><a href="#casting">Casting</a></li>
@@ -888,64 +888,23 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-year">1 9 7 4</div>
-  <h1>AMITYVILLE</h1>
+  <div class="hero-year" id="hero-year">1 9 7 4</div>
+  <h1 id="hero-title">AMITYVILLE</h1>
   <div class="hero-line"></div>
   <p>Welcome to the client review portal. Browse project documents, review AI-generated casting variations, and submit your selections below.</p>
   <div class="hero-tag">Confidential — For Review Only</div>
 </section>
 
-<!-- DOCUMENTS -->
+<!-- DOCUMENTS (rendered dynamically) -->
 <section id="documents">
   <div class="section-header">
     <div class="line"></div>
     <h2>PROJECT DOCUMENTS</h2>
   </div>
-  <div class="doc-grid">
-    <div class="doc-card has-file" onclick="openDocViewer('docs/CINEMAMOODBOARD.pdf', 'Cinema Moodboard — Limited Series Presentation')">
-      <div class="doc-icon">🎬</div>
-      <h3>Cinema Moodboard / Presentation</h3>
-      <p>The full pitch presentation with visual references, cinematography direction, and mood boards.</p>
-      <span class="doc-type">Presentation · PDF</span>
-    </div>
-    <div class="doc-card has-file" onclick="openDocViewer('docs/1974_AMITYVILLE_FILM_BIBLE.pdf', '1974 Amityville — Film & Scene Bible')">
-      <div class="doc-icon">📖</div>
-      <h3>1974 Amityville Film Bible</h3>
-      <p>Complete creative vision, themes, tone, and world-building reference for the project.</p>
-      <span class="doc-type">Film Bible · PDF</span>
-    </div>
-    <div class="doc-card coming-soon">
-      <div class="doc-icon">👥</div>
-      <h3>Characters & World</h3>
-      <p>Detailed character breakdowns, arcs, relationships, and the world they inhabit.</p>
-      <span class="doc-type">Character Doc · DOCX</span>
-      <span class="doc-status">Coming Soon</span>
-    </div>
-    <div class="doc-card coming-soon">
-      <div class="doc-icon">🕯️</div>
-      <h3>Seance Scenes Test</h3>
-      <p>Draft seance sequence scenes for tone and atmosphere testing.</p>
-      <span class="doc-type">Script Pages · PDF</span>
-      <span class="doc-status">Coming Soon</span>
-    </div>
-    <div class="doc-card coming-soon">
-      <div class="doc-icon">📸</div>
-      <h3>Actor Reference Photos</h3>
-      <p>Reference amalgam images used as visual anchors for each character's AI casting.</p>
-      <span class="doc-type">Reference · DOCX</span>
-      <span class="doc-status">Coming Soon</span>
-    </div>
-    <div class="doc-card coming-soon">
-      <div class="doc-icon">🎨</div>
-      <h3>AI Casting Deck (PDF)</h3>
-      <p>Complete casting deck with all 20 AI-generated character variations for print review.</p>
-      <span class="doc-type">Casting Deck · PDF</span>
-      <span class="doc-status">Coming Soon</span>
-    </div>
-  </div>
+  <div class="doc-grid" id="doc-grid"></div>
 </section>
 
-<!-- CASTING -->
+<!-- CASTING (rendered dynamically) -->
 <section id="casting">
   <div class="section-header">
     <div class="line"></div>
@@ -953,354 +912,9 @@
   </div>
   <p class="casting-intro">
     Below are AI-generated casting variations for each character.
-    Each character has 10 variations (V1–V10). Click on the variation(s) you like best for each character. If none work, click "None of these" and describe what changes you'd like.
+    Click on the variation(s) you like best for each character. If none work, click "None of these" and describe what changes you'd like.
   </p>
-
-  <!-- BOBBY D'ANGELO -->
-  <div class="character-section" data-character="Bobby D'Angelo">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>BOBBY D'ANGELO</h3>
-      <span class="character-ref">Reference: Jacob Elordi + Alex Wolff</span>
-    </div>
-    <p class="character-notes">Handsome in an accidental way. Strong jaw, hollowed eyes. Slightly hunched, half-present. Faded denim jacket, Black Sabbath tee, bell-bottom jeans, barefoot.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Bobby V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V1.jpg" alt="Bobby V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V2.jpg" alt="Bobby V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V3.jpg" alt="Bobby V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V4.jpg" alt="Bobby V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/Bobby_V5.jpg" alt="Bobby V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v6.jpg" alt="Bobby V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v7.jpg" alt="Bobby V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v8.jpg" alt="Bobby V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v9.jpg" alt="Bobby V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div></div>
-      </div>
-      <div class="variation-card" data-variation="Bobby V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/bobby/bobby_v10.jpg" alt="Bobby V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Bobby V11" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/bobby/Bobby_V11.jpg" alt="Bobby V11" loading="lazy">
-        <div class="variation-label"><div class="v-id">V11</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Bobby V12" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/bobby/Bobby_V12.jpg" alt="Bobby V12" loading="lazy">
-        <div class="variation-label"><div class="v-id">V12</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what changes you'd like for Bobby D'Angelo..."></textarea>
-    </div>
-  </div>
-
-  <!-- SUSIE -->
-  <div class="character-section" data-character="Susie">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>SUSIE</h3>
-      <span class="character-ref">Reference: Sydney Sweeney + Margaret Qualley</span>
-    </div>
-    <p class="character-notes">Sharp, intuitive, ethereal. Suede fringe vest over a cream peasant blouse, bell-bottom jeans, gold hoop earrings. Hair parted down the middle, flowing. The group's emotional antenna.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Susie V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V1.jpg" alt="Susie V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V2.jpg" alt="Susie V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V3.jpg" alt="Susie V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V4.jpg" alt="Susie V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/Susie_V5.jpg" alt="Susie V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v6.jpg" alt="Susie V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v7.jpg" alt="Susie V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v8.jpg" alt="Susie V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v9.jpg" alt="Susie V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div></div>
-      </div>
-      <div class="variation-card" data-variation="Susie V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/susie/susie_v10.jpg" alt="Susie V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what changes you'd like for Susie..."></textarea>
-    </div>
-  </div>
-
-  <!-- CARL -->
-  <div class="character-section" data-character="Carl">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>CARL</h3>
-      <span class="character-ref">Reference: Timothee Chalamet + Joe Keery</span>
-    </div>
-    <p class="character-notes">Fast-talking skeptic. Red-black flannel over Led Zeppelin tee, wire-frame glasses, feathered hair. The group's loudmouth and comic relief, but hides real fear underneath.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Carl V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V1.jpg" alt="Carl V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V2.jpg" alt="Carl V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V3.jpg" alt="Carl V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V4.jpg" alt="Carl V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/Carl_V5.jpg" alt="Carl V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v6.jpg" alt="Carl V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v7.jpg" alt="Carl V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v8.jpg" alt="Carl V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v9.jpg" alt="Carl V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div></div>
-      </div>
-      <div class="variation-card" data-variation="Carl V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/carl/carl_v10.jpg" alt="Carl V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what changes you'd like for Carl..."></textarea>
-    </div>
-  </div>
-
-  <!-- DARRELL -->
-  <div class="character-section" data-character="Darrell">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>DARRELL</h3>
-      <span class="character-ref">Reference: Michael B. Jordan</span>
-    </div>
-    <p class="character-notes">Quiet Vietnam vet, carved from shadow. Faded Army field jacket with sleeves torn off, combat boots. Watches everything, says little. The most dangerous person in the room and the most broken.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Darrell V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V1.jpg" alt="Darrell V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V2.jpg" alt="Darrell V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V3.jpg" alt="Darrell V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V4.jpg" alt="Darrell V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/Darrell_V5.jpg" alt="Darrell V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v6.jpg" alt="Darrell V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v7.jpg" alt="Darrell V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v8.jpg" alt="Darrell V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v9.jpg" alt="Darrell V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div></div>
-      </div>
-      <div class="variation-card" data-variation="Darrell V10" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/darrell/darrell_v10.jpg" alt="Darrell V10" loading="lazy">
-        <div class="variation-label"><div class="v-id">V10</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Darrell V11" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V11.jpg" alt="Darrell V11" loading="lazy">
-        <div class="variation-label"><div class="v-id">V11</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Darrell V12" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V12.jpg" alt="Darrell V12" loading="lazy">
-        <div class="variation-label"><div class="v-id">V12</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Darrell V13" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V13.jpg" alt="Darrell V13" loading="lazy">
-        <div class="variation-label"><div class="v-id">V13</div></div>
-      </div>
-      <div class="variation-card regen" data-variation="Darrell V14" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><span class="regen-badge">RE-GEN</span><img src="images/darrell/Darrell_V14.jpg" alt="Darrell V14" loading="lazy">
-        <div class="variation-label"><div class="v-id">V14</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what changes you'd like for Darrell..."></textarea>
-    </div>
-  </div>
-
-  <!-- THE STITCHMAN (CREATURE DESIGN) -->
-  <div class="character-section" data-character="The Stitchman">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>THE STITCHMAN</h3>
-      <span class="character-ref">Creature Design — Concept Variations</span>
-    </div>
-    <p class="character-notes">The entity sealed in the basement. More human than monster — but wrong. Every orifice stitched shut by the townspeople to keep the evil from seeping out. Gaunt, tall, unsettling. Tattered Quaker-era clothing, Frankenstein-meets-colonial. These are concept direction sheets — select the overall design direction that feels right.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Stitchman V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V1.jpg" alt="Stitchman V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V2.jpg" alt="Stitchman V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V3.jpg" alt="Stitchman V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V4" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V4.jpg" alt="Stitchman V4" loading="lazy">
-        <div class="variation-label"><div class="v-id">V4</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V5" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V5.jpg" alt="Stitchman V5" loading="lazy">
-        <div class="variation-label"><div class="v-id">V5</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V6" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V6.jpg" alt="Stitchman V6" loading="lazy">
-        <div class="variation-label"><div class="v-id">V6</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V7" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V7.jpg" alt="Stitchman V7" loading="lazy">
-        <div class="variation-label"><div class="v-id">V7</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V8" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V8.jpg" alt="Stitchman V8" loading="lazy">
-        <div class="variation-label"><div class="v-id">V8</div></div>
-      </div>
-      <div class="variation-card" data-variation="Stitchman V9" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/stitchman/Stitchman_V9.jpg" alt="Stitchman V9" loading="lazy">
-        <div class="variation-label"><div class="v-id">V9</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what direction you'd like for The Stitchman..."></textarea>
-    </div>
-  </div>
-
-  <!-- BASEMENT (LOCATION CONCEPT) -->
-  <div class="character-section" data-character="The Basement">
-    <div class="character-divider"></div>
-    <div class="character-header">
-      <h3>THE BASEMENT</h3>
-      <span class="character-ref">Location Concept — Bobby's Sanctuary</span>
-    </div>
-    <p class="character-notes">Bobby's basement hideout — where he writes music, hides from the world above, and unknowingly sits above the sealed chamber. Guitar, cot, scattered papers, vinyl records, a single bare bulb. The trapdoor in the floor is the threshold to everything wrong with this house.</p>
-    <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">▶</span> Show archived variations</div>
-    <div class="variation-grid">
-      <div class="variation-card" data-variation="Basement V1" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/basement/Basement_V1.jpg" alt="Basement V1" loading="lazy">
-        <div class="variation-label"><div class="v-id">V1</div></div>
-      </div>
-      <div class="variation-card" data-variation="Basement V2" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/basement/Basement_V2.jpg" alt="Basement V2" loading="lazy">
-        <div class="variation-label"><div class="v-id">V2</div></div>
-      </div>
-      <div class="variation-card" data-variation="Basement V3" onclick="toggleSelect(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button><a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a><span class="check-badge">✓</span><img src="images/basement/Basement_V3.jpg" alt="Basement V3" loading="lazy">
-        <div class="variation-label"><div class="v-id">V3</div></div>
-      </div>
-    </div>
-    <div class="none-option">
-      <button class="none-btn" onclick="toggleNone(this)">None of these</button>
-    </div>
-    <div class="change-request">
-      <textarea placeholder="Describe what direction you'd like for The Basement..."></textarea>
-    </div>
-  </div>
+  <div id="casting-characters"></div>
 
   <!-- CINEMATOGRAPHY MOOD BOARD -->
   <div id="moodboard" style="margin-bottom:4rem;">
@@ -1312,85 +926,7 @@
       Your production team has prepared visual style references showing how the house interior could look under different cinematography approaches.
       Each option is inspired by a classic horror film's visual language. Select the style(s) that feel right for 1974 Amityville.
     </p>
-    <div class="moodboard-grid">
-      <div class="moodboard-card" data-style="Lake Mungo" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/lake_mungo.jpg" alt="Lake Mungo style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">Lake Mungo</div>
-          <div class="style-desc">Cold, desaturated tones. Eerie stillness. Documentary-style detachment.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="The Taking of Deborah Logan" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/deborah_logan.jpg" alt="Deborah Logan style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">The Taking of Deborah Logan</div>
-          <div class="style-desc">Warmer wood tones with visible crew. Found-footage naturalism.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="The Fields" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/the_fields.jpg" alt="The Fields style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">The Fields</div>
-          <div class="style-desc">Warm amber palette. Aged wallpaper texture. Rural domestic unease.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="Amityville 3-D" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/amityville_3d.jpg" alt="Amityville 3-D style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">Amityville 3-D</div>
-          <div class="style-desc">Deep blue-green shadows. Classic '80s horror lighting. Heavy contrast.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="Amityville 1979" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/amityville_1979.jpg" alt="Amityville 1979 style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">Amityville 1979</div>
-          <div class="style-desc">Rich warm wood. Period-accurate '70s interiors. Lived-in authenticity.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="Texas Chainsaw 1974" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/texas_chainsaw_1974.jpg" alt="Texas Chainsaw 1974 style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">Texas Chainsaw 1974</div>
-          <div class="style-desc">Washed-out, sun-baked decay. Gritty 16mm texture. Oppressive heat.</div>
-        </div>
-      </div>
-      <div class="moodboard-card" data-style="Let's Scare Jessica to Death" onclick="toggleMoodboard(this)">
-        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
-        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">⬇</a>
-        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">✕</button>
-        <span class="check-badge">&#10003;</span>
-        <img src="images/moodboard/jessica_to_death.jpg" alt="Let's Scare Jessica to Death style" loading="lazy">
-        <div class="moodboard-label">
-          <div class="style-name">Let&rsquo;s Scare Jessica to Death</div>
-          <div class="style-desc">Muted earth tones. Exposed brick warmth. Quiet rural dread.</div>
-        </div>
-      </div>
-    </div>
+    <div class="moodboard-grid" id="moodboard-grid"></div>
     <div class="moodboard-archived-toggle" id="moodboard-archive-toggle">
       <button onclick="toggleShowArchived()"><span id="archive-toggle-label">Show Archived</span> (<span id="archive-count">0</span>)</button>
     </div>
@@ -1517,11 +1053,124 @@
 <div class="toast" id="toast">Feedback submitted successfully!</div>
 
 <footer>
-  <p>1974 AMITYVILLE — CONFIDENTIAL CLIENT REVIEW PORTAL</p>
-  <p style="margin-top:0.3rem;">Generated with Freepik AI &middot; Google Nano Banana 2 &middot; 10 Variations Per Character (2 Rounds)</p>
+  <p id="footer-title">1974 AMITYVILLE — CONFIDENTIAL CLIENT REVIEW PORTAL</p>
+  <p style="margin-top:0.3rem;">Generated with Freepik AI &middot; Google Nano Banana 2</p>
 </footer>
 
 <script>
+  // ---- Project Data ----
+  let projectData = null;
+  const archivedState = JSON.parse(localStorage.getItem('archivedVariations') || '{}');
+
+  async function loadProjectData() {
+    try {
+      const res = await fetch('data/project.json');
+      projectData = await res.json();
+      renderDocuments();
+      renderCharacters();
+      renderMoodboard();
+      restoreArchivedMoodboards();
+      updateSummary();
+      initUpload();
+      initNavObserver();
+    } catch (err) {
+      console.error('Failed to load project data:', err);
+    }
+  }
+
+  // ---- Render Documents ----
+  function renderDocuments() {
+    const grid = document.getElementById('doc-grid');
+    grid.innerHTML = projectData.documents.map(doc => {
+      const isAvailable = doc.status === 'available' && doc.file;
+      const cls = isAvailable ? 'doc-card has-file' : 'doc-card coming-soon';
+      const onclick = isAvailable ? `onclick="openDocViewer('${doc.file}', '${(doc.viewerTitle || doc.title).replace(/'/g, "\\'")}')"` : '';
+      return `<div class="${cls}" ${onclick}>
+        <div class="doc-icon">${doc.icon}</div>
+        <h3>${doc.title}</h3>
+        <p>${doc.description}</p>
+        <span class="doc-type">${doc.type}</span>
+        ${!isAvailable ? '<span class="doc-status">Coming Soon</span>' : ''}
+      </div>`;
+    }).join('');
+  }
+
+  // ---- Render Characters ----
+  function renderCharacters() {
+    const container = document.getElementById('casting-characters');
+    container.innerHTML = projectData.characters.map(char => `
+      <div class="character-section" data-character="${char.name}">
+        <div class="character-divider"></div>
+        <div class="character-header">
+          <h3>${char.displayName}</h3>
+          <span class="character-ref">Reference: ${char.reference}</span>
+        </div>
+        <p class="character-notes">${char.notes}</p>
+        <div class="archive-toggle" onclick="toggleArchive(this)"><span class="arrow">&#9654;</span> Show archived variations</div>
+        <div class="variation-grid">
+          ${char.variations.filter(v => v.image).map(v => `
+            <div class="variation-card ${v.regen ? 'regen' : ''} ${archivedState[v.id] ? 'archived' : ''}" data-variation="${v.id}" onclick="toggleSelect(this)">
+              <button class="zoom-btn" onclick="event.stopPropagation();openLightbox(this.parentElement.querySelector('img'))">&#128269;</button>
+              <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">&#11015;</a>
+              <span class="check-badge">&#10003;</span>
+              ${v.regen ? '<span class="regen-badge">RE-GEN</span>' : ''}
+              <img src="${v.image}" alt="${v.id}" loading="lazy">
+              <div class="variation-label"><div class="v-id">${v.label}</div></div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="none-option">
+          <button class="none-btn" onclick="toggleNone(this)">None of these</button>
+        </div>
+        <div class="change-request">
+          <textarea placeholder="Describe what changes you'd like for ${char.name}..."></textarea>
+        </div>
+      </div>
+    `).join('');
+
+    // Inject archive buttons into every variation card
+    document.querySelectorAll('.variation-card').forEach(card => {
+      const btn = document.createElement('button');
+      btn.className = 'archive-btn';
+      const key = card.getAttribute('data-variation');
+      btn.textContent = archivedState[key] ? 'Unarchive' : 'Archive';
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        archiveCard(card);
+      };
+      card.appendChild(btn);
+    });
+
+    // Initialize archive toggles with counts
+    document.querySelectorAll('.character-section').forEach(s => updateArchiveToggle(s));
+
+    // Bind change-request textarea inputs to updateSummary
+    document.querySelectorAll('.change-request textarea').forEach(ta => {
+      ta.addEventListener('input', updateSummary);
+    });
+  }
+
+  // ---- Render Moodboard ----
+  function renderMoodboard() {
+    const grid = document.getElementById('moodboard-grid');
+    grid.innerHTML = projectData.moodboard.map(m => `
+      <div class="moodboard-card" data-style="${m.style}" onclick="toggleMoodboard(this)">
+        <button class="zoom-btn" onclick="event.stopPropagation();openMoodboardLightbox(this.parentElement)">&#128269;</button>
+        <a class="download-btn" onclick="event.stopPropagation();downloadImage(this.parentElement.querySelector('img'))" title="Download">&#11015;</a>
+        <button class="archive-btn" onclick="event.stopPropagation();toggleArchiveMoodboard(this.parentElement)" title="Archive">&#10005;</button>
+        <span class="check-badge">&#10003;</span>
+        <img src="${m.image}" alt="${m.style} style" loading="lazy">
+        <div class="moodboard-label">
+          <div class="style-name">${m.style}</div>
+          <div class="style-desc">${m.description}</div>
+        </div>
+      </div>
+    `).join('');
+
+    // Bind moodboard notes
+    document.getElementById('moodboard-notes').addEventListener('input', updateSummary);
+  }
+
   // ---- Document Viewer ----
   let currentDocUrl = '';
 
@@ -1533,17 +1182,11 @@
     const loader = document.getElementById('doc-loader');
     document.getElementById('doc-fallback-link').href = url;
 
-    // Show loader, hide fallback
     loader.classList.remove('hidden');
     iframe.style.display = 'block';
     fallback.style.display = 'none';
 
-    // When iframe loads, hide the spinner
-    iframe.onload = function() {
-      loader.classList.add('hidden');
-    };
-
-    // If iframe fails to load PDF (some mobile browsers), show fallback
+    iframe.onload = function() { loader.classList.add('hidden'); };
     iframe.onerror = function() {
       loader.classList.add('hidden');
       iframe.style.display = 'none';
@@ -1551,10 +1194,7 @@
     };
 
     iframe.src = url;
-
-    // Fallback timeout — if spinner is still showing after 8s, hide it
     setTimeout(function() { loader.classList.add('hidden'); }, 8000);
-
     document.getElementById('doc-viewer').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1562,7 +1202,6 @@
   function closeDocViewer() {
     const viewer = document.getElementById('doc-viewer');
     viewer.classList.remove('open');
-    // Wait for transition to finish before clearing iframe
     setTimeout(function() {
       document.getElementById('doc-iframe').src = '';
       document.getElementById('doc-loader').classList.remove('hidden');
@@ -1583,9 +1222,8 @@
     window.open(currentDocUrl, '_blank');
   }
 
-  // Close doc viewer on Escape
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDocViewer();
+    if (e.key === 'Escape') { closeDocViewer(); closeLightbox(); }
   });
 
   // ---- Selection Logic ----
@@ -1593,7 +1231,6 @@
     card.classList.toggle('selected');
     const section = card.closest('.character-section');
     const noneBtn = section.querySelector('.none-btn');
-    // If selecting a variation, clear "none" state
     if (card.classList.contains('selected') && noneBtn.classList.contains('active')) {
       noneBtn.classList.remove('active');
       section.querySelector('.change-request').classList.remove('visible');
@@ -1606,7 +1243,6 @@
     const section = btn.closest('.character-section');
     const changeReq = section.querySelector('.change-request');
     if (btn.classList.contains('active')) {
-      // Clear all variation selections for this character
       section.querySelectorAll('.variation-card.selected').forEach(c => c.classList.remove('selected'));
       changeReq.classList.add('visible');
       changeReq.querySelector('textarea').focus();
@@ -1629,7 +1265,6 @@
     if (!wasArchived) card.classList.remove('selected');
     updateArchiveUI();
     updateSummary();
-    // Save archive state to localStorage
     const archived = [];
     document.querySelectorAll('.moodboard-card.archived').forEach(c => archived.push(c.dataset.style));
     localStorage.setItem('moodboard-archived', JSON.stringify(archived));
@@ -1650,8 +1285,7 @@
     label.textContent = grid.classList.contains('hide-archived') ? 'Show Archived' : 'Hide Archived';
   }
 
-  // Restore archived moodboards from localStorage on load
-  (function restoreArchivedMoodboards() {
+  function restoreArchivedMoodboards() {
     const saved = localStorage.getItem('moodboard-archived');
     if (saved) {
       const archived = JSON.parse(saved);
@@ -1660,7 +1294,7 @@
       });
       updateArchiveUI();
     }
-  })();
+  }
 
   function openMoodboardLightbox(card) {
     const img = card.querySelector('img');
@@ -1676,12 +1310,6 @@
     cards.forEach(c => picks.push(c.dataset.style));
     return picks;
   }
-
-  // Also update summary when change-request textareas change
-  document.querySelectorAll('.change-request textarea').forEach(ta => {
-    ta.addEventListener('input', updateSummary);
-  });
-  document.getElementById('moodboard-notes').addEventListener('input', updateSummary);
 
   // ---- Lightbox ----
   function downloadImage(imgEl) {
@@ -1715,10 +1343,6 @@
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
   }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-  });
 
   // ---- Live Summary ----
   function getSelections() {
@@ -1771,7 +1395,8 @@
 
     // Mood board summary
     const moodPicks = getMoodboardSelections();
-    const moodNotes = document.getElementById('moodboard-notes').value.trim();
+    const moodNotesEl = document.getElementById('moodboard-notes');
+    const moodNotes = moodNotesEl ? moodNotesEl.value.trim() : '';
     html += '<div class="selection-summary-item">';
     html += '<span class="summary-character">Cinematography</span>';
     if (moodPicks.length > 0) {
@@ -1786,7 +1411,6 @@
 
     container.innerHTML = html;
 
-    // Enable/disable submit based on whether all characters have a selection
     const allDone = selections.every(s => s.picks.length > 0 || s.noneActive);
     document.getElementById('submit-btn').disabled = !allDone;
   }
@@ -1798,7 +1422,7 @@
     const generalNotes = document.getElementById('general-notes').value.trim();
     let lines = [];
 
-    lines.push('=== 1974 AMITYVILLE — CASTING FEEDBACK ===');
+    lines.push('=== ' + (projectData ? projectData.project.title : '1974 AMITYVILLE') + ' \u2014 CASTING FEEDBACK ===');
     lines.push('');
     if (name) lines.push('Reviewer: ' + name);
     lines.push('Date: ' + new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'}));
@@ -1817,7 +1441,6 @@
       lines.push('');
     });
 
-    // Mood board
     const moodPicks = getMoodboardSelections();
     const moodNotes = document.getElementById('moodboard-notes').value.trim();
     lines.push('--- CINEMATOGRAPHY STYLE ---');
@@ -1854,7 +1477,6 @@
       return;
     }
 
-    // Disable button and show loading state
     const submitBtn = document.getElementById('submit-btn');
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
@@ -1880,17 +1502,15 @@
       const result = await response.json();
 
       if (response.ok && result.success) {
-        // Success!
         const toast = document.getElementById('toast');
         toast.textContent = 'Feedback submitted successfully! The production team has been notified.';
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 5000);
 
-        submitBtn.textContent = 'SUBMITTED ✓';
+        submitBtn.textContent = 'SUBMITTED \u2713';
         submitBtn.style.background = '#4a9e6e';
         submitBtn.style.opacity = '1';
 
-        // Reset after a moment
         setTimeout(() => {
           submitBtn.textContent = originalText;
           submitBtn.style.background = '';
@@ -1903,7 +1523,6 @@
     } catch (err) {
       console.error('Submit error:', err);
 
-      // Show error toast
       const toast = document.getElementById('toast');
       toast.style.background = '#c44e4e';
       toast.textContent = 'Submission failed. Falling back to email...';
@@ -1913,7 +1532,6 @@
         toast.style.background = '';
       }, 4000);
 
-      // Fallback to mailto
       const body = buildEmailBody();
       const subject = encodeURIComponent('1974 Amityville \u2014 Casting & Cinematography Feedback from ' + name);
       const mailto = 'mailto:khalilcm2000@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
@@ -1934,7 +1552,6 @@
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 3000);
     }).catch(() => {
-      // Fallback
       const ta = document.createElement('textarea');
       ta.value = body;
       document.body.appendChild(ta);
@@ -1949,94 +1566,90 @@
   }
 
   // ---- Nav Active State ----
-  const navLinks = document.querySelectorAll('nav a');
-  const observerOpts = { rootMargin: '-50% 0px', threshold: 0 };
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const id = entry.target.id;
-        const link = document.querySelector('nav a[href="#' + id + '"]');
-        if (link) link.classList.add('active');
-      }
-    });
-  }, observerOpts);
-  document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
-
-  // Initialize summary on load
-  updateSummary();
+  function initNavObserver() {
+    const navLinks = document.querySelectorAll('nav a');
+    const observerOpts = { rootMargin: '-50% 0px', threshold: 0 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const id = entry.target.id;
+          const link = document.querySelector('nav a[href="#' + id + '"]');
+          if (link) link.classList.add('active');
+        }
+      });
+    }, observerOpts);
+    document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+  }
 
   // ---- UPLOAD ASSETS ----
   let selectedFile = null;
 
-  const dropZone = document.getElementById('upload-drop-zone');
-  const fileInput = document.getElementById('file-input');
-  const filePreview = document.getElementById('upload-file-preview');
-  const fileRemoveBtn = document.getElementById('upload-file-remove');
-  const uploadSubmitBtn = document.getElementById('upload-submit-btn');
-  const uploadMessage = document.getElementById('upload-message');
+  function initUpload() {
+    const dropZone = document.getElementById('upload-drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const filePreview = document.getElementById('upload-file-preview');
+    const fileRemoveBtn = document.getElementById('upload-file-remove');
+    const uploadSubmitBtn = document.getElementById('upload-submit-btn');
 
-  // Click to browse
-  dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('click', () => fileInput.click());
 
-  // Drag and drop
-  dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.classList.add('drag-over');
-  });
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
 
-  dropZone.addEventListener('dragleave', () => {
-    dropZone.classList.remove('drag-over');
-  });
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('drag-over');
+    });
 
-  dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('drag-over');
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      handleFileSelection(files[0]);
-    }
-  });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) handleFileSelection(files[0]);
+    });
 
-  // File input change
-  fileInput.addEventListener('change', (e) => {
-    if (e.target.files.length > 0) {
-      handleFileSelection(e.target.files[0]);
-    }
-  });
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) handleFileSelection(e.target.files[0]);
+    });
+
+    fileRemoveBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      selectedFile = null;
+      fileInput.value = '';
+      updateFilePreview();
+      clearUploadMessage();
+    });
+
+    uploadSubmitBtn.addEventListener('click', () => submitUpload());
+  }
 
   function handleFileSelection(file) {
-    // Validate file type
     const validTypes = [
-      'image/png',
-      'image/jpeg',
-      'application/pdf',
+      'image/png', 'image/jpeg', 'application/pdf',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     ];
-
     if (!validTypes.includes(file.type)) {
       showUploadMessage('Invalid file type. Please upload PNG, JPG, PDF, or DOCX.', 'error');
       return;
     }
-
-    // Validate file size (4MB)
     const maxSize = 4 * 1024 * 1024;
     if (file.size > maxSize) {
       showUploadMessage('File is too large. Maximum size is 4MB.', 'error');
       return;
     }
-
     selectedFile = file;
     updateFilePreview();
     clearUploadMessage();
   }
 
   function updateFilePreview() {
+    const filePreview = document.getElementById('upload-file-preview');
     if (!selectedFile) {
       filePreview.classList.remove('active');
       return;
     }
-
     document.getElementById('upload-file-name').textContent = selectedFile.name;
     document.getElementById('upload-file-size').textContent = formatFileSize(selectedFile.size);
     filePreview.classList.add('active');
@@ -2050,43 +1663,18 @@
     return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
   }
 
-  fileRemoveBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    selectedFile = null;
-    fileInput.value = '';
-    updateFilePreview();
-    clearUploadMessage();
-  });
-
-  uploadSubmitBtn.addEventListener('click', () => submitUpload());
-
   function submitUpload() {
-    // Validate inputs
-    if (!selectedFile) {
-      showUploadMessage('Please select a file to upload.', 'error');
-      return;
-    }
-
+    if (!selectedFile) { showUploadMessage('Please select a file to upload.', 'error'); return; }
     const uploaderName = document.getElementById('upload-name').value.trim();
-    if (!uploaderName) {
-      showUploadMessage('Please enter your name.', 'error');
-      return;
-    }
-
+    if (!uploaderName) { showUploadMessage('Please enter your name.', 'error'); return; }
     const category = document.getElementById('upload-category').value;
-    if (!category) {
-      showUploadMessage('Please select a category.', 'error');
-      return;
-    }
-
+    if (!category) { showUploadMessage('Please select a category.', 'error'); return; }
     const notes = document.getElementById('upload-notes').value.trim();
+    const uploadSubmitBtn = document.getElementById('upload-submit-btn');
 
-    // Read file as base64
     const reader = new FileReader();
     reader.onload = async (e) => {
-      const fileData = e.target.result.split(',')[1]; // Extract base64 data
-
-      // Show loading state
+      const fileData = e.target.result.split(',')[1];
       uploadSubmitBtn.disabled = true;
       uploadSubmitBtn.textContent = 'Uploading...';
       clearUploadMessage();
@@ -2094,86 +1682,47 @@
       try {
         const response = await fetch('/api/upload-asset', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            fileName: selectedFile.name,
-            fileData: fileData,
-            fileType: selectedFile.type,
-            uploaderName: uploaderName,
-            category: category,
-            notes: notes,
+            fileName: selectedFile.name, fileData: fileData,
+            fileType: selectedFile.type, uploaderName: uploaderName,
+            category: category, notes: notes,
           }),
         });
-
         const result = await response.json();
-
-        if (!response.ok) {
-          throw new Error(result.error || 'Upload failed');
-        }
+        if (!response.ok) throw new Error(result.error || 'Upload failed');
 
         showUploadMessage('Asset uploaded successfully!', 'success');
-
-        // Reset form
         selectedFile = null;
-        fileInput.value = '';
+        document.getElementById('file-input').value = '';
         document.getElementById('upload-name').value = '';
         document.getElementById('upload-category').value = '';
         document.getElementById('upload-notes').value = '';
         updateFilePreview();
-
-        // Reset button
-        setTimeout(() => {
-          uploadSubmitBtn.disabled = false;
-          uploadSubmitBtn.textContent = 'Send to Production';
-        }, 2000);
+        setTimeout(() => { uploadSubmitBtn.disabled = false; uploadSubmitBtn.textContent = 'Send to Production'; }, 2000);
       } catch (error) {
         console.error('Upload error:', error);
         showUploadMessage('Error uploading asset: ' + error.message, 'error');
-
-        // Reset button
         uploadSubmitBtn.disabled = false;
         uploadSubmitBtn.textContent = 'Send to Production';
       }
     };
-
     reader.readAsDataURL(selectedFile);
   }
 
   function showUploadMessage(message, type) {
-    uploadMessage.textContent = message;
-    uploadMessage.className = 'upload-message ' + type;
+    const el = document.getElementById('upload-message');
+    el.textContent = message;
+    el.className = 'upload-message ' + type;
   }
 
   function clearUploadMessage() {
-    uploadMessage.className = 'upload-message';
-    uploadMessage.textContent = '';
+    const el = document.getElementById('upload-message');
+    el.className = 'upload-message';
+    el.textContent = '';
   }
 
   // ---- ARCHIVE FEATURE ----
-  // Load archived state from localStorage
-  const archivedState = JSON.parse(localStorage.getItem('archivedVariations') || '{}');
-
-  // Inject archive buttons into every variation card and restore state
-  document.querySelectorAll('.variation-card').forEach(card => {
-    const btn = document.createElement('button');
-    btn.className = 'archive-btn';
-    btn.textContent = 'Archive';
-    btn.onclick = function(e) {
-      e.stopPropagation();
-      archiveCard(card);
-    };
-    card.appendChild(btn);
-
-    // Restore archived state
-    const key = card.getAttribute('data-variation');
-    if (archivedState[key]) {
-      card.classList.add('archived');
-      btn.textContent = 'Unarchive';
-    }
-  });
-
   function archiveCard(card) {
     const key = card.getAttribute('data-variation');
     const btn = card.querySelector('.archive-btn');
@@ -2181,12 +1730,9 @@
     const isArchived = card.classList.contains('archived');
     btn.textContent = isArchived ? 'Unarchive' : 'Archive';
 
-    // Persist
     archivedState[key] = isArchived;
     localStorage.setItem('archivedVariations', JSON.stringify(archivedState));
-    // Update the toggle count
     updateArchiveToggle(card.closest('.character-section'));
-    // If it was selected, deselect it
     if (isArchived && card.classList.contains('selected')) {
       card.classList.remove('selected');
       updateSummary();
@@ -2205,13 +1751,13 @@
     const count = section.querySelectorAll('.variation-card.archived').length;
     const isOpen = section.classList.contains('show-archived');
     toggle.classList.toggle('open', isOpen);
-    toggle.innerHTML = '<span class="arrow">▶</span> ' +
+    toggle.innerHTML = '<span class="arrow">&#9654;</span> ' +
       (isOpen ? 'Hide' : 'Show') + ' archived variations' +
       (count > 0 ? ' <span class="archive-count">' + count + '</span>' : '');
   }
 
-  // Initialize all archive toggles with counts
-  document.querySelectorAll('.character-section').forEach(s => updateArchiveToggle(s));
+  // ---- Load on startup ----
+  loadProjectData();
 </script>
 
 </body>

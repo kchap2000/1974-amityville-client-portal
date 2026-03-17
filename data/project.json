@@ -1,0 +1,248 @@
+{
+  "project": {
+    "title": "1974 AMITYVILLE",
+    "subtitle": "Limited Series",
+    "status": "review",
+    "created": "2026-03-14",
+    "updated": "2026-03-17"
+  },
+  "documents": [
+    {
+      "id": "cinema-moodboard",
+      "title": "Cinema Moodboard / Presentation",
+      "description": "The full pitch presentation with visual references, cinematography direction, and mood boards.",
+      "icon": "🎬",
+      "type": "Presentation \u00b7 PDF",
+      "file": "docs/CINEMAMOODBOARD.pdf",
+      "viewerTitle": "Cinema Moodboard \u2014 Limited Series Presentation",
+      "status": "available"
+    },
+    {
+      "id": "film-bible",
+      "title": "1974 Amityville Film Bible",
+      "description": "Complete creative vision, themes, tone, and world-building reference for the project.",
+      "icon": "\ud83d\udcd6",
+      "type": "Film Bible \u00b7 PDF",
+      "file": "docs/1974_AMITYVILLE_FILM_BIBLE.pdf",
+      "viewerTitle": "1974 Amityville \u2014 Film & Scene Bible",
+      "status": "available"
+    },
+    {
+      "id": "characters-world",
+      "title": "Characters & World",
+      "description": "Detailed character breakdowns, arcs, relationships, and the world they inhabit.",
+      "icon": "\ud83d\udc65",
+      "type": "Character Doc \u00b7 DOCX",
+      "file": null,
+      "status": "coming-soon"
+    },
+    {
+      "id": "seance-scenes",
+      "title": "Seance Scenes Test",
+      "description": "Draft seance sequence scenes for tone and atmosphere testing.",
+      "icon": "\ud83d\udd6f\ufe0f",
+      "type": "Script Pages \u00b7 PDF",
+      "file": null,
+      "status": "coming-soon"
+    },
+    {
+      "id": "actor-references",
+      "title": "Actor Reference Photos",
+      "description": "Reference amalgam images used as visual anchors for each character's AI casting.",
+      "icon": "\ud83d\udcf8",
+      "type": "Reference \u00b7 DOCX",
+      "file": null,
+      "status": "coming-soon"
+    },
+    {
+      "id": "casting-deck",
+      "title": "AI Casting Deck (PDF)",
+      "description": "Complete casting deck with all 20 AI-generated character variations for print review.",
+      "icon": "\ud83c\udfa8",
+      "type": "Casting Deck \u00b7 PDF",
+      "file": null,
+      "status": "coming-soon"
+    }
+  ],
+  "characters": [
+    {
+      "id": "bobby-dangelo",
+      "name": "Bobby D'Angelo",
+      "displayName": "BOBBY D'ANGELO",
+      "reference": "Jacob Elordi + Alex Wolff",
+      "notes": "Handsome in an accidental way. Strong jaw, hollowed eyes. Slightly hunched, half-present. Faded denim jacket, Black Sabbath tee, bell-bottom jeans, barefoot.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Bobby V1", "label": "V1", "image": "images/bobby/Bobby_V1.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V2", "label": "V2", "image": "images/bobby/Bobby_V2.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V3", "label": "V3", "image": "images/bobby/Bobby_V3.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V4", "label": "V4", "image": "images/bobby/Bobby_V4.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V5", "label": "V5", "image": "images/bobby/Bobby_V5.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V6", "label": "V6", "image": "images/bobby/bobby_v6.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V7", "label": "V7", "image": "images/bobby/bobby_v7.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V8", "label": "V8", "image": "images/bobby/bobby_v8.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V9", "label": "V9", "image": "images/bobby/bobby_v9.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V10", "label": "V10", "image": "images/bobby/bobby_v10.jpg", "regen": false, "archived": false },
+        { "id": "Bobby V11", "label": "V11", "image": "images/bobby/Bobby_V11.jpg", "regen": true, "archived": false },
+        { "id": "Bobby V12", "label": "V12", "image": "images/bobby/Bobby_V12.jpg", "regen": true, "archived": false }
+      ]
+    },
+    {
+      "id": "susie",
+      "name": "Susie",
+      "displayName": "SUSIE",
+      "reference": "Sydney Sweeney + Margaret Qualley",
+      "notes": "Sharp, intuitive, ethereal. Suede fringe vest over a cream peasant blouse, bell-bottom jeans, gold hoop earrings. Hair parted down the middle, flowing. The group's emotional antenna.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Susie V1", "label": "V1", "image": "images/susie/Susie_V1.jpg", "regen": false, "archived": false },
+        { "id": "Susie V2", "label": "V2", "image": "images/susie/Susie_V2.jpg", "regen": false, "archived": false },
+        { "id": "Susie V3", "label": "V3", "image": "images/susie/Susie_V3.jpg", "regen": false, "archived": false },
+        { "id": "Susie V4", "label": "V4", "image": "images/susie/Susie_V4.jpg", "regen": false, "archived": false },
+        { "id": "Susie V5", "label": "V5", "image": "images/susie/Susie_V5.jpg", "regen": false, "archived": false },
+        { "id": "Susie V6", "label": "V6", "image": "images/susie/susie_v6.jpg", "regen": false, "archived": false },
+        { "id": "Susie V7", "label": "V7", "image": "images/susie/susie_v7.jpg", "regen": false, "archived": false },
+        { "id": "Susie V8", "label": "V8", "image": "images/susie/susie_v8.jpg", "regen": false, "archived": false },
+        { "id": "Susie V9", "label": "V9", "image": "images/susie/susie_v9.jpg", "regen": false, "archived": false },
+        { "id": "Susie V10", "label": "V10", "image": "images/susie/susie_v10.jpg", "regen": false, "archived": false }
+      ]
+    },
+    {
+      "id": "carl",
+      "name": "Carl",
+      "displayName": "CARL",
+      "reference": "Timothee Chalamet + Joe Keery",
+      "notes": "Fast-talking skeptic. Red-black flannel over Led Zeppelin tee, wire-frame glasses, feathered hair. The group's loudmouth and comic relief, but hides real fear underneath.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Carl V1", "label": "V1", "image": "images/carl/Carl_V1.jpg", "regen": false, "archived": false },
+        { "id": "Carl V2", "label": "V2", "image": "images/carl/Carl_V2.jpg", "regen": false, "archived": false },
+        { "id": "Carl V3", "label": "V3", "image": "images/carl/Carl_V3.jpg", "regen": false, "archived": false },
+        { "id": "Carl V4", "label": "V4", "image": "images/carl/Carl_V4.jpg", "regen": false, "archived": false },
+        { "id": "Carl V5", "label": "V5", "image": "images/carl/Carl_V5.jpg", "regen": false, "archived": false },
+        { "id": "Carl V6", "label": "V6", "image": "images/carl/carl_v6.jpg", "regen": false, "archived": false },
+        { "id": "Carl V7", "label": "V7", "image": "images/carl/carl_v7.jpg", "regen": false, "archived": false },
+        { "id": "Carl V8", "label": "V8", "image": "images/carl/carl_v8.jpg", "regen": false, "archived": false },
+        { "id": "Carl V9", "label": "V9", "image": "images/carl/carl_v9.jpg", "regen": false, "archived": false },
+        { "id": "Carl V10", "label": "V10", "image": "images/carl/carl_v10.jpg", "regen": false, "archived": false }
+      ]
+    },
+    {
+      "id": "darrell",
+      "name": "Darrell",
+      "displayName": "DARRELL",
+      "reference": "Michael B. Jordan",
+      "notes": "Quiet Vietnam vet, carved from shadow. Faded Army field jacket with sleeves torn off, combat boots. Watches everything, says little. The most dangerous person in the room and the most broken.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Darrell V1", "label": "V1", "image": "images/darrell/Darrell_V1.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V2", "label": "V2", "image": "images/darrell/Darrell_V2.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V3", "label": "V3", "image": "images/darrell/Darrell_V3.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V4", "label": "V4", "image": "images/darrell/Darrell_V4.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V5", "label": "V5", "image": "images/darrell/Darrell_V5.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V6", "label": "V6", "image": "images/darrell/darrell_v6.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V7", "label": "V7", "image": "images/darrell/darrell_v7.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V8", "label": "V8", "image": "images/darrell/darrell_v8.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V9", "label": "V9", "image": "images/darrell/darrell_v9.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V10", "label": "V10", "image": "images/darrell/darrell_v10.jpg", "regen": false, "archived": false },
+        { "id": "Darrell V11", "label": "V11", "image": "images/darrell/Darrell_V11.jpg", "regen": true, "archived": false },
+        { "id": "Darrell V12", "label": "V12", "image": "images/darrell/Darrell_V12.jpg", "regen": true, "archived": false },
+        { "id": "Darrell V13", "label": "V13", "image": "images/darrell/Darrell_V13.jpg", "regen": true, "archived": false },
+        { "id": "Darrell V14", "label": "V14", "image": "images/darrell/Darrell_V14.jpg", "regen": true, "archived": false }
+      ]
+    },
+    {
+      "id": "the-stitchman",
+      "name": "The Stitchman",
+      "displayName": "THE STITCHMAN",
+      "reference": "Creature Design \u2014 Concept Variations",
+      "notes": "The entity sealed in the basement. More human than monster \u2014 but wrong. Every orifice stitched shut by the townspeople to keep the evil from seeping out. Gaunt, tall, unsettling. Tattered Quaker-era clothing, Frankenstein-meets-colonial. These are concept direction sheets \u2014 select the overall design direction that feels right.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Stitchman V1", "label": "V1", "image": "images/stitchman/Stitchman_V1.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V2", "label": "V2", "image": "images/stitchman/Stitchman_V2.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V3", "label": "V3", "image": "images/stitchman/Stitchman_V3.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V4", "label": "V4", "image": "images/stitchman/Stitchman_V4.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V5", "label": "V5", "image": "images/stitchman/Stitchman_V5.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V6", "label": "V6", "image": "images/stitchman/Stitchman_V6.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V7", "label": "V7", "image": "images/stitchman/Stitchman_V7.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V8", "label": "V8", "image": "images/stitchman/Stitchman_V8.jpg", "regen": false, "archived": false },
+        { "id": "Stitchman V9", "label": "V9", "image": "images/stitchman/Stitchman_V9.jpg", "regen": false, "archived": false }
+      ]
+    },
+    {
+      "id": "the-basement",
+      "name": "The Basement",
+      "displayName": "THE BASEMENT",
+      "reference": "Location Concept \u2014 Bobby's Sanctuary",
+      "notes": "Bobby's basement hideout \u2014 where he writes music, hides from the world above, and unknowingly sits above the sealed chamber. Guitar, cot, scattered papers, vinyl records, a single bare bulb. The trapdoor in the floor is the threshold to everything wrong with this house.",
+      "status": "review",
+      "locked_variation": null,
+      "variations": [
+        { "id": "Basement V1", "label": "V1", "image": "images/basement/Basement_V1.jpg", "regen": false, "archived": false },
+        { "id": "Basement V2", "label": "V2", "image": "images/basement/Basement_V2.jpg", "regen": false, "archived": false },
+        { "id": "Basement V3", "label": "V3", "image": "images/basement/Basement_V3.jpg", "regen": false, "archived": false }
+      ]
+    }
+  ],
+  "moodboard": [
+    {
+      "id": "lake-mungo",
+      "style": "Lake Mungo",
+      "description": "Cold, desaturated tones. Eerie stillness. Documentary-style detachment.",
+      "image": "images/moodboard/lake_mungo.jpg",
+      "archived": false
+    },
+    {
+      "id": "deborah-logan",
+      "style": "The Taking of Deborah Logan",
+      "description": "Warmer wood tones with visible crew. Found-footage naturalism.",
+      "image": "images/moodboard/deborah_logan.jpg",
+      "archived": false
+    },
+    {
+      "id": "the-fields",
+      "style": "The Fields",
+      "description": "Warm amber palette. Aged wallpaper texture. Rural domestic unease.",
+      "image": "images/moodboard/the_fields.jpg",
+      "archived": false
+    },
+    {
+      "id": "amityville-3d",
+      "style": "Amityville 3-D",
+      "description": "Deep blue-green shadows. Classic '80s horror lighting. Heavy contrast.",
+      "image": "images/moodboard/amityville_3d.jpg",
+      "archived": false
+    },
+    {
+      "id": "amityville-1979",
+      "style": "Amityville 1979",
+      "description": "Rich warm wood. Period-accurate '70s interiors. Lived-in authenticity.",
+      "image": "images/moodboard/amityville_1979.jpg",
+      "archived": false
+    },
+    {
+      "id": "texas-chainsaw-1974",
+      "style": "Texas Chainsaw 1974",
+      "description": "Washed-out, sun-baked decay. Gritty 16mm texture. Oppressive heat.",
+      "image": "images/moodboard/texas_chainsaw_1974.jpg",
+      "archived": false
+    },
+    {
+      "id": "jessica-to-death",
+      "style": "Let\u2019s Scare Jessica to Death",
+      "description": "Muted earth tones. Exposed brick warmth. Quiet rural dread.",
+      "image": "images/moodboard/jessica_to_death.jpg",
+      "archived": false
+    }
+  ],
+  "gap_analysis": {
+    "pending_questions": [],
+    "resolved": []
+  }
+}
